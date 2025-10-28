@@ -1,6 +1,10 @@
+// components/Services.tsx
+import type { ReactElement, ReactNode } from "react";
+
 export default function Services() {
-  type Item = { t: string; d: string; icon: JSX.Element };
-  const IconWrap = ({ children }: { children: React.ReactNode }) => (
+  type Item = { t: string; d: string; icon: ReactElement };
+
+  const IconWrap = ({ children }: { children: ReactNode }) => (
     <div className="inline-flex size-12 items-center justify-center rounded-2xl bg-brand-50 ring-1 ring-brand-100">
       <div className="inline-flex size-9 items-center justify-center rounded-xl bg-white ring-1 ring-gold-200">
         {children}
@@ -78,7 +82,7 @@ export default function Services() {
         {items.map((it) => (
           <article
             key={it.t}
-            className="group rounded-xl2 bg-white p-6 shadow-card ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-lg"
+            className="group rounded-xl2 bg-white p-6 shadow-card ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-lg relative"
           >
             <IconWrap>{it.icon}</IconWrap>
             <h3 className="mt-4 text-lg font-semibold">
@@ -88,13 +92,11 @@ export default function Services() {
             </h3>
             <p className="mt-1 text-sm leading-relaxed text-ink-600">{it.d}</p>
 
-            {/* acento dorado sutil en el borde al pasar */}
             <div className="pointer-events-none absolute inset-0 rounded-xl2 ring-0 ring-gold-300/0 transition duration-300 group-hover:ring-4 group-hover:ring-gold-200/50" />
           </article>
         ))}
       </div>
 
-      {/* Botón centrado */}
       <div className="mt-10 flex justify-center">
         <a href="/servicios" className="btn-primary">
           Ver todos los servicios
