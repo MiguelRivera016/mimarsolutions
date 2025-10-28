@@ -1,0 +1,1 @@
+import Websites from '@/components/Websites'; export default function Page(){ return <Websites/> }

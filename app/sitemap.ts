@@ -1,0 +1,1 @@
+export default function sitemap(){const b='https://mimar.solutions';return ['','/proyectos','/servicios','/sitios-web','/cotizar'].map(p=>({url:b+p,lastModified:new Date()}));}
