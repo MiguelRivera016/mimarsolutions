@@ -104,8 +104,8 @@ export const METADATA = {
     ],
   },
   openGraph: {
-    type: 'website',
+    type: 'website' as const,
     locale: 'es_HN',
     siteName: 'MIMAR Solutions',
   },
-} as const;
+};
