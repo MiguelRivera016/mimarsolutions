@@ -1,0 +1,14 @@
+# robots.txt para MIMAR Solutions
+
+# Permitir todos los crawlers
+User-agent: *
+Allow: /
+
+# Disallow admin or private paths (if any in the future)
+# Disallow: /admin/
+
+# Sitemap
+Sitemap: https://mimar.solutions/sitemap.xml
+
+# Crawl-delay (optional, uncomment if needed)
+# Crawl-delay: 1

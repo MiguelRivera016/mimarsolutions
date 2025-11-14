@@ -1,3 +1,5 @@
+import { COMPANY } from '@/config/constants';
+
 export default function ContactStrip() {
   return (
     <section className="border-y border-slate-200 bg-white">
@@ -7,17 +9,20 @@ export default function ContactStrip() {
         </p>
         <div className="flex gap-2">
           <a
-            href="https://wa.me/50499999999"
-            className="rounded-xl bg-[#0B78C4] px-4 py-2 text-sm font-semibold text-white hover:bg-[#0a6dad]"
+            href={`https://wa.me/${COMPANY.phoneRaw}`}
+            className="rounded-xl bg-brand-500 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-600 transition-colors"
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Contactar por WhatsApp"
           >
             WhatsApp
           </a>
           <a
-            href="mailto:ventas@mimar.group"
-            className="rounded-xl border border-slate-300 px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+            href={`mailto:${COMPANY.email}`}
+            className="rounded-xl border border-slate-300 px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 transition-colors"
+            aria-label="Contactar por email"
           >
-            ventas@mimar.group
+            {COMPANY.email}
           </a>
         </div>
       </div>
