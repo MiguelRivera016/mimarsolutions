@@ -1,3 +1,6 @@
+'use client';
+import { motion } from 'framer-motion';
+
 export default function EnterpriseFeatures() {
   const features = [
     {
@@ -14,6 +17,7 @@ export default function EnterpriseFeatures() {
       title: 'Datos 100% Seguros',
       description:
         'Respaldo automático diario y encriptación de extremo a extremo. Tus datos están protegidos.',
+      color: 'from-green-500 to-emerald-600',
     },
     {
       icon: (
@@ -29,6 +33,7 @@ export default function EnterpriseFeatures() {
       title: 'Acceso desde Cualquier Lugar',
       description:
         'App móvil y web responsive. Gestiona tu negocio desde celular, tablet o computadora.',
+      color: 'from-blue-500 to-cyan-600',
     },
     {
       icon: (
@@ -44,6 +49,7 @@ export default function EnterpriseFeatures() {
       title: 'Alto Rendimiento',
       description:
         'Procesa miles de transacciones por minuto sin ralentizar tu operación diaria.',
+      color: 'from-yellow-500 to-orange-600',
     },
     {
       icon: (
@@ -59,6 +65,7 @@ export default function EnterpriseFeatures() {
       title: 'Multi-Usuario',
       description:
         'Roles y permisos configurables. Control total de quién puede hacer qué en el sistema.',
+      color: 'from-purple-500 to-pink-600',
     },
     {
       icon: (
@@ -74,6 +81,7 @@ export default function EnterpriseFeatures() {
       title: 'Reportes Inteligentes',
       description:
         'Dashboards personalizados con métricas en tiempo real. Exporta a Excel, PDF o imprime.',
+      color: 'from-indigo-500 to-blue-600',
     },
     {
       icon: (
@@ -89,14 +97,36 @@ export default function EnterpriseFeatures() {
       title: 'Totalmente Personalizable',
       description:
         'Adaptamos el sistema a tus procesos únicos. No cambies tu forma de trabajar.',
+      color: 'from-rose-500 to-red-600',
     },
   ];
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 30, scale: 0.9 },
+    show: { opacity: 1, y: 0, scale: 1 },
+  };
+
   return (
-    <section className="border-t bg-white py-20">
+    <section className="border-t bg-gradient-to-b from-white to-slate-50 py-20">
       <div className="container-pro max-w-7xl">
-        <div className="text-center">
-          <span className="inline-block rounded-full bg-brand-100 px-4 py-1.5 text-sm font-medium text-brand-700">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center"
+        >
+          <span className="inline-block rounded-full bg-brand-100 px-4 py-1.5 text-sm font-medium text-brand-700 ring-1 ring-brand-200">
             Características empresariales
           </span>
           <h2 className="mt-4 text-3xl font-bold text-slate-900 md:text-4xl">
@@ -105,24 +135,47 @@ export default function EnterpriseFeatures() {
           <p className="mt-3 text-lg text-slate-600">
             Todo lo que necesitas para operar con eficiencia y escalar sin límites
           </p>
-        </div>
+        </motion.div>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+        >
           {features.map((feature, idx) => (
-            <div
+            <motion.div
               key={idx}
-              className="group rounded-xl border border-slate-200 bg-white p-6 transition-all hover:border-brand-300 hover:shadow-lg"
+              variants={item}
+              whileHover={{ y: -5, scale: 1.03 }}
+              transition={{ duration: 0.2 }}
+              className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-8 shadow-sm"
             >
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-brand-50 text-brand-600 ring-1 ring-brand-100 transition-all group-hover:bg-brand-600 group-hover:text-white group-hover:ring-brand-600">
+              {/* Decorative gradient background */}
+              <div className={`absolute -right-12 -top-12 h-32 w-32 rounded-full bg-gradient-to-br ${feature.color} opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-20`} />
+
+              <motion.div
+                whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
+                transition={{ duration: 0.5 }}
+                className={`inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${feature.color} text-white shadow-lg`}
+              >
                 {feature.icon}
-              </div>
-              <h3 className="mt-4 text-lg font-semibold text-slate-900">
+              </motion.div>
+
+              <h3 className="relative z-10 mt-6 text-lg font-semibold text-slate-900 transition-colors group-hover:text-brand-700">
                 {feature.title}
               </h3>
-              <p className="mt-2 text-sm text-slate-600">{feature.description}</p>
-            </div>
+
+              <p className="relative z-10 mt-2 text-sm text-slate-600">
+                {feature.description}
+              </p>
+
+              {/* Hover border effect */}
+              <div className="absolute inset-0 rounded-2xl border-2 border-brand-500 opacity-0 transition-opacity group-hover:opacity-100" />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
