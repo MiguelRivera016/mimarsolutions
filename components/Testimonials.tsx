@@ -1,3 +1,6 @@
+'use client';
+import { motion } from 'framer-motion';
+
 export default function Testimonials() {
   const items = [
     {
@@ -32,10 +35,31 @@ export default function Testimonials() {
     },
   ];
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0 },
+  };
+
   return (
     <section aria-label="Testimonios de clientes" className="bg-slate-50 py-20">
       <div className="container-pro max-w-7xl">
-        <div className="text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center"
+        >
           <span className="inline-block rounded-full bg-gold-100 px-4 py-1.5 text-sm font-medium text-gold-700">
             Casos de éxito
           </span>
@@ -45,13 +69,22 @@ export default function Testimonials() {
           <p className="mt-3 text-lg text-slate-600">
             Más de 50 empresas hondureñas ya automatizaron sus operaciones
           </p>
-        </div>
+        </motion.div>
 
-        <div className="mt-12 grid gap-8 md:grid-cols-3">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="mt-12 grid gap-8 md:grid-cols-3"
+        >
           {items.map((testimonial, idx) => (
-            <figure
+            <motion.figure
               key={idx}
-              className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all hover:shadow-xl"
+              variants={item}
+              whileHover={{ y: -8, scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+              className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-8 shadow-sm"
             >
               {/* Decorative gradient */}
               <div
@@ -112,29 +145,38 @@ export default function Testimonials() {
                   </div>
                 </div>
               </figcaption>
-            </figure>
+            </motion.figure>
           ))}
-        </div>
+        </motion.div>
 
         {/* Stats bar */}
-        <div className="mt-16 grid gap-8 rounded-2xl bg-gradient-to-br from-brand-600 to-brand-500 p-8 text-white md:grid-cols-4">
-          <div className="text-center">
-            <div className="text-4xl font-bold">+50</div>
-            <div className="mt-1 text-sm text-white/80">Empresas activas</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold">98%</div>
-            <div className="mt-1 text-sm text-white/80">Satisfacción</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold">24/7</div>
-            <div className="mt-1 text-sm text-white/80">Soporte técnico</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold">5 años</div>
-            <div className="mt-1 text-sm text-white/80">En el mercado</div>
-          </div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-16 grid gap-8 rounded-2xl bg-gradient-to-br from-brand-600 to-brand-500 p-8 text-white md:grid-cols-4"
+        >
+          {[
+            { value: '+50', label: 'Empresas activas' },
+            { value: '98%', label: 'Satisfacción' },
+            { value: '24/7', label: 'Soporte técnico' },
+            { value: '5 años', label: 'En el mercado' },
+          ].map((stat, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ scale: 0.8, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.3 + idx * 0.1 }}
+              whileHover={{ scale: 1.1 }}
+              className="text-center"
+            >
+              <div className="text-4xl font-bold">{stat.value}</div>
+              <div className="mt-1 text-sm text-white/80">{stat.label}</div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
