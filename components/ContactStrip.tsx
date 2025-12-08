@@ -5,7 +5,7 @@ export default function ContactStrip() {
     <section className="border-y border-slate-200 bg-white">
       <div className="mx-auto flex max-w-screen-xl flex-col items-center justify-between gap-4 px-6 py-6 sm:flex-row">
         <p className="text-sm text-slate-700">
-          ¿Listo para una demo o una llamada de 10 minutos?
+          ¿Listo para cotizar o agendar una llamada de 10 minutos?
         </p>
         <div className="flex gap-2">
           <a

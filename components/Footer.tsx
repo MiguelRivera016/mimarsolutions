@@ -147,7 +147,7 @@ export default function Footer() {
                 href="/cotizar"
                 className="transition-colors hover:text-brand-600 hover:underline"
               >
-                Solicitar cotización
+                Cotizar ahora
               </Link>
             </li>
             <li>

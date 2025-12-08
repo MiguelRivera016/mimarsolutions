@@ -1,5 +1,8 @@
 import { Metadata } from 'next';
 import AboutIntro from '@/components/AboutIntro';
+import AboutHighlights from '@/components/AboutHighlights';
+import AboutTimeline from '@/components/AboutTimeline';
+import AboutCulture from '@/components/AboutCulture';
 import Team from '@/components/Team';
 import ContactStrip from '@/components/ContactStrip';
 import CTA from '@/components/CTA';
@@ -19,7 +22,10 @@ export default function SobrePage() {
   return (
     <>
       <AboutIntro />
+      <AboutHighlights />
+      <AboutTimeline />
       <Team />
+      <AboutCulture />
       <ContactStrip />
       <CTA />
     </>
