@@ -57,7 +57,7 @@ export default function CTA(){
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-2 max-w-2xl text-white/90"
           >
-            Agende una demo o solicite una cotización personalizada.
+            Solicite una cotización personalizada o agende una llamada de descubrimiento.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

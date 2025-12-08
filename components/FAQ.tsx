@@ -39,9 +39,9 @@ const faqs = [
       'Todas las actualizaciones y nuevas funcionalidades están incluidas sin costo adicional. Realizamos actualizaciones mensuales de seguridad y mejoras, y 2-3 releases importantes al año con nuevas características.',
   },
   {
-    question: '¿Puedo probar el sistema antes de comprar?',
+    question: '¿Puedo revisar el sistema antes de contratar?',
     answer:
-      'Por supuesto. Ofrecemos una demo gratuita de 14 días con acceso completo a todas las funcionalidades. También puedes agendar una sesión guiada con nuestro equipo para ver el sistema en acción.',
+      'Por supuesto. Prepararemos una cotización personalizada con escenarios similares a tu operación y agendaremos una sesión guiada para mostrarte el sistema en acción. También podemos habilitar un entorno temporal para validar flujos clave con tu equipo.',
   },
 ];
 

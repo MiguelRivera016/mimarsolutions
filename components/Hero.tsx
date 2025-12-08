@@ -91,7 +91,7 @@ export default function Hero() {
                 href="/cotizar"
                 className="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-white px-6 py-3.5 text-base font-semibold text-brand-700 shadow-lg transition-all hover:scale-105 hover:shadow-xl"
               >
-                <span className="relative z-10">Solicitar demo gratuita</span>
+                <span className="relative z-10">Solicitar cotización</span>
                 <svg
                   className="relative z-10 h-5 w-5 transition-transform group-hover:translate-x-1"
                   fill="none"
