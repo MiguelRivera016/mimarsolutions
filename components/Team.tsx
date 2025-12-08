@@ -3,25 +3,28 @@ import { motion } from 'framer-motion';
 
 const team = [
   {
-    name: "Carlos Miguel Rivera",
-    role: "Fundador & CTO",
-    initials: "CR",
-    gradient: "from-blue-500 to-blue-600",
-    description: "Chief Technology Officer"
+    name: 'Miguel Rivera',
+    role: 'Fundador & CEO',
+    initials: 'MR',
+    gradient: 'from-blue-500 to-sky-600',
+    quote: 'Dirige la visión de producto y asegura que cada implementación esté alineada a indicadores de negocio.',
+    tags: ['Product Strategy', 'Enterprise SaaS'],
   },
   {
-    name: "María Matehu",
-    role: "Cofundadora & COO",
-    initials: "MM",
-    gradient: "from-purple-500 to-purple-600",
-    description: "Chief Operating Officer"
+    name: 'María Matehu',
+    role: 'COO & Customer Success',
+    initials: 'MM',
+    gradient: 'from-purple-500 to-pink-600',
+    quote: 'Orquesta la operación diaria, lidera la oficina de proyectos y el acompañamiento post go-live.',
+    tags: ['PMO', 'Customer Success'],
   },
   {
-    name: "Equipo Técnico",
-    role: "Desarrolladores & Soporte",
-    initials: "ET",
-    gradient: "from-green-500 to-green-600",
-    description: "Development & IT Support"
+    name: 'Equipo Técnico',
+    role: 'Ingeniería & Soporte 24/7',
+    initials: 'ET',
+    gradient: 'from-emerald-500 to-teal-600',
+    quote: 'Desarrolladores full stack, especialistas DevOps y mesa de soporte hiperlocal dedicada.',
+    tags: ['Full Stack', 'DevOps', 'Support'],
   },
 ];
 
@@ -50,8 +53,11 @@ export default function Team() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-2xl font-bold text-slate-900">Nuestro equipo</h2>
-          <p className="mt-2 text-slate-600">Profesionales comprometidos con tu éxito</p>
+          <span className="text-sm font-semibold uppercase tracking-wide text-brand-600">Personas</span>
+          <h2 className="mt-2 text-3xl font-bold text-slate-900">Equipo fundador y células clave</h2>
+          <p className="mt-2 text-slate-600">
+            Los líderes que diseñan, implementan y acompañan cada uno de tus proyectos de software.
+          </p>
         </motion.div>
 
         <motion.div
@@ -67,10 +73,12 @@ export default function Team() {
               variants={item}
               whileHover={{ y: -8, scale: 1.03 }}
               transition={{ duration: 0.3 }}
-              className="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200"
+              className="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-lg ring-1 ring-slate-100"
             >
               {/* Decorative gradient background */}
-              <div className={`absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-to-br ${m.gradient} opacity-5 blur-2xl transition-opacity group-hover:opacity-10`} />
+              <div
+                className={`absolute -right-16 -top-16 h-40 w-40 rounded-full bg-gradient-to-br ${m.gradient} opacity-10 blur-3xl transition-opacity group-hover:opacity-30`}
+              />
 
               {/* Avatar with initials */}
               <div className="relative mx-auto flex h-28 w-28 items-center justify-center">
@@ -85,13 +93,23 @@ export default function Team() {
 
               {/* Content */}
               <div className="relative mt-6 text-center">
-                <h3 className="text-lg font-semibold text-slate-900">{m.name}</h3>
-                <p className="mt-1 text-sm font-medium text-slate-700">{m.role}</p>
-                <p className="mt-2 text-xs text-slate-500">{m.description}</p>
+                <h3 className="text-2xl font-semibold text-slate-900">{m.name}</h3>
+                <p className="mt-1 text-base font-semibold text-brand-600">{m.role}</p>
+                <p className="mt-3 text-sm text-slate-600">{m.quote}</p>
+                <div className="mt-4 flex flex-wrap justify-center gap-2">
+                  {m.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               {/* Hover border effect */}
-              <div className="absolute inset-0 rounded-2xl ring-2 ring-transparent transition-all group-hover:ring-slate-300" />
+              <div className="absolute inset-0 rounded-3xl ring-2 ring-transparent transition-all group-hover:ring-brand-200" />
             </motion.div>
           ))}
         </motion.div>
