@@ -19,79 +19,79 @@ export default function Services() {
 
   const items: Item[] = [
     {
-      t: 'Desarrollo de Software y Aplicaciones',
-      d: 'Sistemas de inventario, POS, asistencia y apps móviles a la medida para empresas y negocios.',
-      color: 'bg-gradient-to-br from-blue-500 to-blue-600',
+      t: 'Suite POS + Inventario',
+      d: 'Ventas, stock en tiempo real y facturación SAR en un solo panel multi-sucursal.',
+      color: 'bg-gradient-to-br from-brand-500 to-brand-600',
       icon: (
-        <svg viewBox="0 0 24 24" className="size-6 text-blue-600">
+        <svg viewBox="0 0 24 24" className="size-6 text-brand-50">
           <path
             fill="currentColor"
-            d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-4 3v-3H6a2 2 0 0 1-2-2z"
+            d="M6 3h12a2 2 0 0 1 2 2v3H4V5a2 2 0 0 1 2-2m14 7v9a2 2 0 0 1-2 2h-5v-4h-4v4H4a2 2 0 0 1-2-2v-9z"
           />
         </svg>
       ),
     },
     {
-      t: 'Diseño y Desarrollo Web Profesional',
-      d: 'Sitios web modernos, responsivos y optimizados con panel de administración incluido.',
+      t: 'Control de asistencia & RRHH',
+      d: 'Biometría, geolocalización, turnos flexibles e integración con nómina.',
       color: 'bg-gradient-to-br from-purple-500 to-purple-600',
       icon: (
-        <svg viewBox="0 0 24 24" className="size-6 text-purple-600">
+        <svg viewBox="0 0 24 24" className="size-6 text-white">
           <path
             fill="currentColor"
-            d="M3 5h18a1 1 0 011 1v12a1 1 0 01-1 1H3a1 1 0 01-1-1V6a1 1 0 011-1zm0 2v10h18V7H3z"
+            d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5m-7 9v-1a6 6 0 0 1 12 0v1"
           />
         </svg>
       ),
     },
     {
-      t: 'Soluciones en la Nube y Hosting',
-      d: 'Servidores, bases de datos y copias de seguridad con AWS, Firebase o Azure.',
+      t: 'E-commerce y marketplaces',
+      d: 'Catálogos, pagos en línea, logística y panel administrativo con analytics.',
       color: 'bg-gradient-to-br from-cyan-500 to-cyan-600',
       icon: (
-        <svg viewBox="0 0 24 24" className="size-6 text-cyan-600">
+        <svg viewBox="0 0 24 24" className="size-6 text-white">
           <path
             fill="currentColor"
-            d="M7 16h10a4 4 0 0 0 0-8 6 6 0 0 0-11.5 2A3.5 3.5 0 0 0 7 16z"
+            d="M15 6H3l3 9h10l3-9zm-3 12a2 2 0 1 0 2 2 2 2 0 0 0-2-2m-6 0a2 2 0 1 0 2 2 2 2 0 0 0-2-2"
           />
         </svg>
       ),
     },
     {
-      t: 'Soporte Técnico 24/7',
-      d: 'Mantenimiento remoto, administración de redes y seguridad de sistemas.',
-      color: 'bg-gradient-to-br from-green-500 to-green-600',
+      t: 'Apps móviles de campo',
+      d: 'Ordenes de servicio, formularios offline y firmas digitales desde Android/iOS.',
+      color: 'bg-gradient-to-br from-emerald-500 to-emerald-600',
       icon: (
-        <svg viewBox="0 0 24 24" className="size-6 text-green-600">
+        <svg viewBox="0 0 24 24" className="size-6 text-white">
           <path
             fill="currentColor"
-            d="M12 6a6 6 0 1 1-6 6h2a4 4 0 1 0 4-4V6zM5 20h14v-2H5z"
+            d="M17 1H7a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2m-5 20a1.5 1.5 0 1 1 1.5-1.5A1.5 1.5 0 0 1 12 21m5-4H7V4h10z"
           />
         </svg>
       ),
     },
     {
-      t: 'Automatización Empresarial',
-      d: 'Dashboards, reportes con Power BI y conexiones entre sistemas para optimizar procesos.',
+      t: 'Dashboards y BI',
+      d: 'KPIs en vivo, reportes automáticos y alertas para dirección y operaciones.',
       color: 'bg-gradient-to-br from-orange-500 to-orange-600',
       icon: (
-        <svg viewBox="0 0 24 24" className="size-6 text-orange-600">
+        <svg viewBox="0 0 24 24" className="size-6 text-white">
           <path
             fill="currentColor"
-            d="M4 14h3v6H4zm6-4h3v10h-3zm6-6h3v16h-3z"
+            d="M5 21h14v-2H5zm2-4h3V7H7zm5 0h3V3h-3zm5 0h3V11h-3z"
           />
         </svg>
       ),
     },
     {
-      t: 'Capacitación Tecnológica',
-      d: 'Cursos, talleres y certificaciones para tu equipo con contenido empresarial.',
-      color: 'bg-gradient-to-br from-pink-500 to-pink-600',
+      t: 'Integraciones + automatización',
+      d: 'Conectamos contabilidad, ERPs, pasarelas y hardware con APIs seguras.',
+      color: 'bg-gradient-to-br from-rose-500 to-rose-600',
       icon: (
-        <svg viewBox="0 0 24 24" className="size-6 text-pink-600">
+        <svg viewBox="0 0 24 24" className="size-6 text-white">
           <path
             fill="currentColor"
-            d="M12 3 2 8l10 5 8-4v6h2V8zM4 14v3l8 4 8-4v-3l-8 4z"
+            d="M12 3a3 3 0 1 0 0 6h.18a3 3 0 1 0 0 6H12a3 3 0 1 0 0 6"
           />
         </svg>
       ),
@@ -127,13 +127,13 @@ export default function Services() {
           className="mx-auto max-w-3xl text-center"
         >
           <span className="inline-block rounded-full bg-brand-100 px-4 py-1.5 text-sm font-medium text-brand-700 ring-1 ring-brand-200">
-            Nuestros Servicios
+            Soluciones listas para implementar
           </span>
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-            Soluciones completas para tu empresa
+            Paquetes de software para operaciones críticas
           </h2>
           <p className="mt-3 text-lg text-slate-600">
-            Desde desarrollo hasta soporte continuo, cubrimos todas tus necesidades tecnológicas
+            Conectamos ventas, inventario, RRHH y datos en una suite modular que crece contigo.
           </p>
         </motion.div>
 
@@ -207,12 +207,12 @@ export default function Services() {
           className="mt-12 flex justify-center"
         >
           <motion.a
-            href="/servicios"
+            href="/apps"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="group inline-flex items-center gap-2 rounded-xl bg-brand-600 px-8 py-4 text-base font-semibold text-white shadow-lg transition-all hover:bg-brand-700 hover:shadow-xl"
           >
-            Ver todos los servicios
+            Ver todas las soluciones
             <svg
               className="h-5 w-5 transition-transform group-hover:translate-x-1"
               fill="none"
