@@ -170,7 +170,7 @@ export default function AppsPage() {
                     href={`/cotizar?producto=${app.id}`}
                     className="inline-flex items-center gap-2 rounded-xl bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-brand-700"
                   >
-                    Solicitar cotización
+                    Cotizar ahora
                     <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path
                         strokeLinecap="round"
@@ -271,7 +271,7 @@ export default function AppsPage() {
               href="/cotizar"
               className="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-semibold text-brand-700 shadow-lg transition-all hover:bg-gold-400 hover:text-white"
             >
-              Solicitar cotización
+              Cotizar ahora
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path
                   strokeLinecap="round"
