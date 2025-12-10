@@ -1,100 +1,173 @@
 'use client';
-import { motion } from 'framer-motion';
 
-const team = [
+import { useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+
+const teamSections = [
   {
-    name: "Carlos Miguel Rivera",
-    role: "Fundador & CTO",
-    initials: "CR",
-    gradient: "from-blue-500 to-blue-600",
-    description: "Chief Technology Officer"
+    id: 'fundador',
+    label: 'Fundador',
+    pill: 'Visión tecnológica',
+    summary:
+      'Define la arquitectura, estándares de seguridad y el roadmap técnico de los productos clave.',
+    color: 'from-blue-500 to-blue-600',
+    members: [
+      {
+        name: 'Carlos Miguel Rivera',
+        role: 'Fundador & CTO',
+        bio: 'Dirige la estrategia de productos cloud, asesora a clientes enterprise y lidera los squads técnicos.',
+        focus: ['Arquitectura cloud-native', 'Integraciones fiscales y POS', 'Mentoría técnica'],
+      },
+    ],
   },
   {
-    name: "María Matehu",
-    role: "Cofundadora & COO",
-    initials: "MM",
-    gradient: "from-purple-500 to-purple-600",
-    description: "Chief Operating Officer"
+    id: 'cofundadora',
+    label: 'Cofundadora',
+    pill: 'Operaciones y experiencia',
+    summary:
+      'Coordina la implementación con clientes, asegura KPIs de adopción y estandariza los procesos internos.',
+    color: 'from-purple-500 to-purple-600',
+    members: [
+      {
+        name: 'María Matehu',
+        role: 'Cofundadora & COO',
+        bio: 'Conecta a cada cliente con el squad correcto, diseña flujos de soporte y lidera la expansión comercial.',
+        focus: ['CX & onboarding', 'Gestión de proyectos', 'Estrategia comercial'],
+      },
+    ],
   },
   {
-    name: "Equipo Técnico",
-    role: "Desarrolladores & Soporte",
-    initials: "ET",
-    gradient: "from-green-500 to-green-600",
-    description: "Development & IT Support"
+    id: 'equipo',
+    label: 'Equipo',
+    pill: 'Squads multidisciplinarios',
+    summary:
+      'UX, desarrollo y soporte trabajan como células híbridas que se activan según el reto del cliente.',
+    color: 'from-green-500 to-green-600',
+    members: [
+      {
+        name: 'Lucía Torres',
+        role: 'Product Designer',
+        bio: 'Lidera research rápido, prototipado y handoff con ingeniería.',
+        focus: ['Design systems', 'Pruebas con usuarios'],
+      },
+      {
+        name: 'Jorge Aguilar',
+        role: 'Full Stack Engineer',
+        bio: 'Especialista en Next.js, Nest y despliegues en Vercel/AWS.',
+        focus: ['Integraciones externas', 'Escalabilidad'],
+      },
+      {
+        name: 'Camila Núñez',
+        role: 'Customer Success & Soporte',
+        bio: 'Monitorea KPIs post-lanzamiento y coordina entrenamientos.',
+        focus: ['Playbooks de soporte', 'Automatización de alertas'],
+      },
+    ],
   },
 ];
 
 export default function Team() {
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0 },
-  };
+  const [activeSection, setActiveSection] = useState(teamSections[0].id);
+  const current = teamSections.find((section) => section.id === activeSection) ?? teamSections[0];
 
   return (
     <section className="bg-slate-50/60">
-      <div className="mx-auto max-w-screen-xl px-6 py-16">
+      <div className="mx-auto max-w-5xl px-6 py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
+          className="text-center"
         >
-          <h2 className="text-2xl font-bold text-slate-900">Nuestro equipo</h2>
-          <p className="mt-2 text-slate-600">Profesionales comprometidos con tu éxito</p>
+          <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-1 text-xs font-semibold uppercase tracking-wide text-brand-700 shadow-sm">
+            Equipo MIMAR
+          </span>
+          <h2 className="mt-4 text-3xl font-bold text-slate-900">Personas detrás de cada entrega</h2>
+          <p className="mt-2 text-base text-slate-600">
+            Haz clic en cada perfil para conocer cómo se organizan nuestros squads.
+          </p>
         </motion.div>
 
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="mt-8 grid gap-8 sm:grid-cols-3"
-        >
-          {team.map((m) => (
-            <motion.div
-              key={m.name}
-              variants={item}
-              whileHover={{ y: -8, scale: 1.03 }}
-              transition={{ duration: 0.3 }}
-              className="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200"
+        <div className="mt-10 flex flex-wrap justify-center gap-3">
+          {teamSections.map((section) => {
+            const isActive = section.id === current.id;
+            return (
+              <button
+                key={section.id}
+                onClick={() => setActiveSection(section.id)}
+                className={`rounded-full border px-4 py-2 text-sm font-semibold transition-all ${
+                  isActive
+                    ? 'border-transparent bg-slate-900 text-white shadow-lg'
+                    : 'border-slate-300 bg-white text-slate-700 hover:border-slate-400'
+                }`}
+                aria-pressed={isActive}
+              >
+                {section.label}
+              </button>
+            );
+          })}
+        </div>
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={current.id}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+            className="mt-10 rounded-3xl border border-slate-200 bg-white/80 p-8 shadow-xl backdrop-blur"
+          >
+            <div className="flex flex-col items-center text-center">
+              <span
+                className={`inline-flex items-center gap-2 rounded-full bg-gradient-to-r ${current.color} px-4 py-1 text-xs font-semibold uppercase tracking-wide text-white`}
+              >
+                {current.pill}
+              </span>
+              <h3 className="mt-4 text-2xl font-bold text-slate-900">{current.label}</h3>
+              <p className="mt-2 text-base text-slate-600 max-w-2xl">{current.summary}</p>
+            </div>
+
+            <div
+              className={`mt-10 grid gap-6 ${
+                current.members.length > 2 ? 'md:grid-cols-3' : 'md:grid-cols-2'
+              }`}
             >
-              {/* Decorative gradient background */}
-              <div className={`absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-to-br ${m.gradient} opacity-5 blur-2xl transition-opacity group-hover:opacity-10`} />
-
-              {/* Avatar with initials */}
-              <div className="relative mx-auto flex h-28 w-28 items-center justify-center">
+              {current.members.map((member) => (
                 <motion.div
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.6 }}
-                  className={`flex h-full w-full items-center justify-center rounded-full bg-gradient-to-br ${m.gradient} text-3xl font-bold text-white shadow-lg`}
+                  key={member.name}
+                  whileHover={{ y: -4 }}
+                  className="flex flex-col rounded-2xl border border-slate-100 bg-white p-6 text-left shadow-sm"
                 >
-                  {m.initials}
+                  <div
+                    className={`flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br ${current.color} text-lg font-semibold text-white`}
+                  >
+                    {member.name
+                      .split(' ')
+                      .map((n) => n[0])
+                      .slice(0, 2)
+                      .join('')}
+                  </div>
+                  <div className="mt-4">
+                    <div className="text-lg font-semibold text-slate-900">{member.name}</div>
+                    <p className="text-sm font-medium text-slate-600">{member.role}</p>
+                    <p className="mt-2 text-sm text-slate-500">{member.bio}</p>
+                  </div>
+                  {member.focus && (
+                    <ul className="mt-4 space-y-1 text-sm text-slate-600">
+                      {member.focus.map((focusItem) => (
+                        <li key={focusItem} className="flex items-center gap-2">
+                          <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand-500" />
+                          {focusItem}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </motion.div>
-              </div>
-
-              {/* Content */}
-              <div className="relative mt-6 text-center">
-                <h3 className="text-lg font-semibold text-slate-900">{m.name}</h3>
-                <p className="mt-1 text-sm font-medium text-slate-700">{m.role}</p>
-                <p className="mt-2 text-xs text-slate-500">{m.description}</p>
-              </div>
-
-              {/* Hover border effect */}
-              <div className="absolute inset-0 rounded-2xl ring-2 ring-transparent transition-all group-hover:ring-slate-300" />
-            </motion.div>
-          ))}
-        </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );

@@ -6,7 +6,6 @@ import TrustBadges from '@/components/TrustBadges';
 import Integrations from '@/components/Integrations';
 import PricingComparison from '@/components/PricingComparison';
 import Portfolio from '@/components/Portfolio';
-import Testimonials from '@/components/Testimonials';
 import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
 
@@ -21,7 +20,6 @@ export default function HomePage() {
       <Integrations />
       <PricingComparison />
       <Portfolio withCTA={false} />
-      <Testimonials />
       <FAQ />
       <CTA />
     </>
