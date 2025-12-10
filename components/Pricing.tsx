@@ -2,13 +2,15 @@ import Link from "next/link";
 
 function Card({
   title,
-  price,
+  total,
+  membership,
   features,
   ctaHref,
   highlighted = false,
 }: {
   title: string;
-  price: string;
+  total: string;
+  membership: string;
   features: string[];
   ctaHref: string;
   highlighted?: boolean;
@@ -22,7 +24,15 @@ function Card({
       }`}
     >
       <div className="text-sm font-semibold text-slate-900">{title}</div>
-      <div className="mt-2 text-3xl font-bold text-slate-900">{price}</div>
+      <div className="mt-3">
+        <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+          Inversión inicial
+        </p>
+        <div className="text-3xl font-bold text-slate-900">{total}</div>
+      </div>
+      <div className="mt-4 rounded-2xl bg-slate-100/80 px-4 py-3 text-sm font-semibold text-slate-700">
+        Membresía mensual: <span className="text-slate-900">{membership}</span>
+      </div>
       <ul className="mt-4 space-y-2 text-sm text-slate-700">
         {features.map((f) => (
           <li key={f}>• {f}</li>
@@ -48,25 +58,29 @@ export default function Pricing() {
       <div className="mx-auto max-w-screen-xl px-6 py-16">
         <h2 className="text-2xl font-bold text-slate-900">Planes claros, resultados reales</h2>
         <p className="mt-2 max-w-2xl text-slate-600">
-          Cotizamos a medida. Estos paquetes orientan el alcance típico para empezar.
+          Mostramos la inversión total y la membresía mensual que asegura soporte, mejoras y
+          acompañamiento continuo por paquete.
         </p>
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           <Card
             title="Sitio Web"
-            price="L 9,900+"
+            total="L 9,900"
+            membership="L 350 / mes"
             features={["Landing corporativa", "Optimización SEO inicial", "Formulario y WhatsApp", "Hosting no incluido"]}
             ctaHref="/cotizar"
           />
           <Card
             title="Inventario / POS"
-            price="L 24,900+"
+            total="L 24,900"
+            membership="L 450 / mes"
             features={["Módulos base (productos, ventas, reportes)", "Usuarios y roles", "Capacitación 2 sesiones", "Soporte 30 días"]}
             ctaHref="/cotizar"
             highlighted
           />
           <Card
             title="App Móvil"
-            price="L 39,900+"
+            total="L 39,900"
+            membership="L 650 / mes"
             features={["iOS / Android con RN", "Notificaciones y mapas", "Panel admin web", "CI/CD básico"]}
             ctaHref="/cotizar"
           />

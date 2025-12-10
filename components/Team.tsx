@@ -9,13 +9,13 @@ const teamSections = [
     label: 'Fundador',
     pill: 'Visión tecnológica',
     summary:
-      'Define la arquitectura, estándares de seguridad y el roadmap técnico de los productos clave.',
+      'Define la arquitectura, los criterios de seguridad y acompaña personalmente la ejecución de los proyectos clave.',
     color: 'from-blue-500 to-blue-600',
     members: [
       {
-        name: 'Carlos Miguel Rivera',
+        name: 'Miguel Rivera',
         role: 'Fundador & CTO',
-        bio: 'Dirige la estrategia de productos cloud, asesora a clientes enterprise y lidera los squads técnicos.',
+        bio: 'Lidera la dirección técnica, asesora a los clientes estratégicos y asegura que cada entrega mantenga estándares enterprise.',
         focus: ['Arquitectura cloud-native', 'Integraciones fiscales y POS', 'Mentoría técnica'],
       },
     ],
@@ -25,14 +25,14 @@ const teamSections = [
     label: 'Cofundadora',
     pill: 'Operaciones y experiencia',
     summary:
-      'Coordina la implementación con clientes, asegura KPIs de adopción y estandariza los procesos internos.',
+      'Licenciada en Administración de Empresas a cargo de la operación diaria, la relación con clientes y la evaluación de nuevos proyectos.',
     color: 'from-purple-500 to-purple-600',
     members: [
       {
         name: 'María Matehu',
-        role: 'Cofundadora & COO',
-        bio: 'Conecta a cada cliente con el squad correcto, diseña flujos de soporte y lidera la expansión comercial.',
-        focus: ['CX & onboarding', 'Gestión de proyectos', 'Estrategia comercial'],
+        role: 'Cofundadora & COO | Lic. Admón. de Empresas',
+        bio: 'Administra los recursos, conecta cada cliente con el squad ideal y valida el alcance de cada iniciativa antes de su producción.',
+        focus: ['Gestión de clientes', 'Evaluación de proyectos', 'Procesos operativos'],
       },
     ],
   },
@@ -41,15 +41,9 @@ const teamSections = [
     label: 'Equipo',
     pill: 'Squads multidisciplinarios',
     summary:
-      'UX, desarrollo y soporte trabajan como células híbridas que se activan según el reto del cliente.',
+      'Desarrollo y Customer Success trabajan en células que se activan según el reto del cliente para garantizar continuidad y soporte.',
     color: 'from-green-500 to-green-600',
     members: [
-      {
-        name: 'Lucía Torres',
-        role: 'Product Designer',
-        bio: 'Lidera research rápido, prototipado y handoff con ingeniería.',
-        focus: ['Design systems', 'Pruebas con usuarios'],
-      },
       {
         name: 'Jorge Aguilar',
         role: 'Full Stack Engineer',
@@ -59,7 +53,7 @@ const teamSections = [
       {
         name: 'Camila Núñez',
         role: 'Customer Success & Soporte',
-        bio: 'Monitorea KPIs post-lanzamiento y coordina entrenamientos.',
+        bio: 'Monitorea KPIs post-lanzamiento, coordina entrenamientos y cuida la adopción continua.',
         focus: ['Playbooks de soporte', 'Automatización de alertas'],
       },
     ],
