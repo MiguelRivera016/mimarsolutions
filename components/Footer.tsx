@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { COMPANY } from '@/config/constants';
 
 export default function Footer() {
@@ -44,12 +45,12 @@ export default function Footer() {
         {/* Marca */}
         <div>
           <div className="flex items-center gap-2">
-            <img
+            <Image
               src="/assets/branding/isotipo-m.png"
               alt="MIMAR Solutions"
-              className="h-9 w-9"
               width={36}
               height={36}
+              className="h-9 w-9"
             />
             <span className="text-base font-semibold">{COMPANY.name}</span>
           </div>

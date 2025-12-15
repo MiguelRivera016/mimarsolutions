@@ -34,6 +34,12 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: METADATA.default.title,
+    description: METADATA.default.description,
+    images: ['/assets/images/responsive-devices.png'],
+  },
   robots: { index: true, follow: true },
   alternates: { canonical: COMPANY.url },
   icons: { icon: '/favicon.ico' },

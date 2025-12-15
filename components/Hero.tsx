@@ -1,8 +1,37 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useMemo } from 'react';
+
+type Particle = {
+  x: number;
+  y: number;
+  duration: number;
+  delay: number;
+};
+
+function mulberry32(seed: number) {
+  return function () {
+    // https://stackoverflow.com/a/47593316
+    let t = (seed += 0x6d2b79f5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
 
 export default function Hero() {
+  const particles = useMemo<Particle[]>(() => {
+    const rand = mulberry32(1337);
+    return Array.from({ length: 20 }, () => ({
+      x: rand() * 1200,
+      y: rand() * 800,
+      duration: rand() * 3 + 2,
+      delay: rand() * 2,
+    }));
+  }, []);
+
   return (
     <section aria-labelledby="hero-title" className="relative overflow-hidden">
       {/* Animated Background */}
@@ -10,22 +39,22 @@ export default function Hero() {
 
       {/* Animated particles */}
       <div className="absolute inset-0 z-0">
-        {[...Array(20)].map((_, i) => (
+        {particles.map((p, i) => (
           <motion.div
             key={i}
             className="absolute h-1 w-1 rounded-full bg-white/20"
             initial={{
-              x: Math.random() * 1200,
-              y: Math.random() * 800
+              x: p.x,
+              y: p.y,
             }}
             animate={{
               y: [null, -100],
               opacity: [0, 1, 0],
             }}
             transition={{
-              duration: Math.random() * 3 + 2,
+              duration: p.duration,
               repeat: Infinity,
-              delay: Math.random() * 2,
+              delay: p.delay,
             }}
           />
         ))}
@@ -91,7 +120,7 @@ export default function Hero() {
                 href="/cotizar"
                 className="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-white px-6 py-3.5 text-base font-semibold text-brand-700 shadow-lg transition-all hover:scale-105 hover:shadow-xl"
               >
-                <span className="relative z-10">Solicitar demo gratuita</span>
+                <span className="relative z-10">Solicitar cotización</span>
                 <svg
                   className="relative z-10 h-5 w-5 transition-transform group-hover:translate-x-1"
                   fill="none"
@@ -203,14 +232,17 @@ export default function Hero() {
               </div>
 
               <div className="overflow-hidden rounded-lg ring-1 ring-slate-200">
-                <motion.img
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                  src="/assets/images/responsive-devices.png"
-                  alt="Sistema POS e Inventario - MIMAR Solutions"
-                  className="h-auto w-full"
-                  loading="eager"
-                />
+                <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
+                  <Image
+                    src="/assets/images/responsive-devices.png"
+                    alt="Sistema POS e Inventario - MIMAR Solutions"
+                    width={1200}
+                    height={800}
+                    priority
+                    className="h-auto w-full"
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                  />
+                </motion.div>
               </div>
             </motion.div>
 
