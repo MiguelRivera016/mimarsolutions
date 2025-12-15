@@ -5,7 +5,8 @@ import Link from 'next/link';
 const plans = [
   {
     name: 'Básico',
-    price: 'L. 8,500',
+    price: 'L. 15,999',
+    monthly: 'L. 299',
     description: 'Ideal para pequeños negocios',
     popular: false,
     features: [
@@ -21,7 +22,8 @@ const plans = [
   },
   {
     name: 'Profesional',
-    price: 'L. 12,000',
+    price: 'L. 29,999',
+    monthly: 'L. 599',
     description: 'Lo más popular para empresas',
     popular: true,
     features: [
@@ -86,7 +88,7 @@ export default function PricingComparison() {
             Elige el plan perfecto para tu negocio
           </h2>
           <p className="mt-3 text-lg text-slate-600">
-            Precios transparentes sin sorpresas. Todos incluyen actualizaciones gratis
+            Pago inicial + mensualidad. Precios transparentes sin sorpresas
           </p>
         </motion.div>
 
@@ -129,9 +131,15 @@ export default function PricingComparison() {
                 <div className="flex items-baseline gap-2">
                   <span className="text-4xl font-extrabold text-slate-900">{plan.price}</span>
                   {plan.price !== 'Contactar' && (
-                    <span className="text-sm text-slate-600">/ una vez</span>
+                    <span className="text-sm text-slate-600">/ pago inicial</span>
                   )}
                 </div>
+                {plan.price !== 'Contactar' && plan.monthly && (
+                  <div className="mt-2 text-sm text-slate-700">
+                    <span className="font-semibold text-slate-900">+ {plan.monthly}</span>{' '}
+                    <span className="text-slate-600">/ mes</span>
+                  </div>
+                )}
               </div>
 
               {/* Features */}
