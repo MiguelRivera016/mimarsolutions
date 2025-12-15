@@ -1,5 +1,5 @@
 import Hero from '@/components/Hero';
-import LiveStats from '@/components/LiveStats';
+import TrustBar from '@/components/TrustBar';
 import Services from '@/components/Services';
 import EnterpriseFeatures from '@/components/EnterpriseFeatures';
 import TrustBadges from '@/components/TrustBadges';
@@ -14,7 +14,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <LiveStats />
+      <TrustBar />
       <Services />
       <EnterpriseFeatures />
       <TrustBadges />

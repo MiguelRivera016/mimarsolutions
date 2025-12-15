@@ -261,10 +261,10 @@ export default function Hero() {
                   transition={{ duration: 0.5, delay: 0.8, type: 'spring' }}
                   className="text-2xl font-bold text-brand-600"
                 >
-                  +50
+                  Soporte
                 </motion.div>
-                <div className="text-xs text-slate-600">Empresas confían</div>
-                <div className="text-xs text-slate-600">en nosotros</div>
+                <div className="text-xs text-slate-600">Equipo local</div>
+                <div className="text-xs text-slate-600">y respuesta ágil</div>
               </div>
             </motion.div>
 

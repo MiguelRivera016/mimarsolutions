@@ -60,14 +60,14 @@ export default function Testimonials() {
           transition={{ duration: 0.5 }}
           className="text-center"
         >
-          <span className="inline-block rounded-full bg-gold-100 px-4 py-1.5 text-sm font-medium text-gold-700">
-            Casos de éxito
+          <span className="inline-block rounded-full bg-slate-200 px-4 py-1.5 text-sm font-medium text-slate-700">
+            Testimonios
           </span>
           <h2 className="mt-4 text-3xl font-bold text-slate-900 md:text-4xl">
-            Empresas que confían en nosotros
+            Lo que dicen nuestros clientes
           </h2>
           <p className="mt-3 text-lg text-slate-600">
-            Más de 50 empresas hondureñas ya automatizaron sus operaciones
+            Experiencias reales sobre implementación, soporte y resultados
           </p>
         </motion.div>
 
@@ -107,20 +107,6 @@ export default function Testimonials() {
                 "{testimonial.quote}"
               </blockquote>
 
-              {/* Metrics badge */}
-              <div className="mt-6">
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-green-50 px-3 py-1 text-xs font-semibold text-green-700 ring-1 ring-green-600/20">
-                  <svg className="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  {testimonial.metrics}
-                </span>
-              </div>
-
               {/* Author info */}
               <figcaption className="mt-6 border-t border-slate-200 pt-6">
                 <div className="flex items-start gap-3">
@@ -146,35 +132,6 @@ export default function Testimonials() {
                 </div>
               </figcaption>
             </motion.figure>
-          ))}
-        </motion.div>
-
-        {/* Stats bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-16 grid gap-8 rounded-2xl bg-gradient-to-br from-brand-600 to-brand-500 p-8 text-white md:grid-cols-4"
-        >
-          {[
-            { value: '+50', label: 'Empresas activas' },
-            { value: '98%', label: 'Satisfacción' },
-            { value: '24/7', label: 'Soporte técnico' },
-            { value: '5 años', label: 'En el mercado' },
-          ].map((stat, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ scale: 0.8, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.3 + idx * 0.1 }}
-              whileHover={{ scale: 1.1 }}
-              className="text-center"
-            >
-              <div className="text-4xl font-bold">{stat.value}</div>
-              <div className="mt-1 text-sm text-white/80">{stat.label}</div>
-            </motion.div>
           ))}
         </motion.div>
       </div>
