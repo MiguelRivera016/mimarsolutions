@@ -7,7 +7,7 @@ const plans = [
     name: 'Básico',
     price: 'L. 15,999',
     monthly: 'L. 299',
-    description: 'Ideal para pequeños negocios',
+    description: 'Para iniciar con POS e inventario',
     popular: false,
     features: [
       { name: 'Hasta 3 usuarios', included: true },
@@ -24,7 +24,7 @@ const plans = [
     name: 'Profesional',
     price: 'L. 29,999',
     monthly: 'L. 599',
-    description: 'Lo más popular para empresas',
+    description: 'Recomendado para operación completa',
     popular: true,
     features: [
       { name: 'Hasta 10 usuarios', included: true },
@@ -82,13 +82,13 @@ export default function PricingComparison() {
           className="text-center"
         >
           <span className="inline-block rounded-full bg-brand-100 px-4 py-1.5 text-sm font-medium text-brand-700">
-            Planes y precios
+            POS e Inventarios
           </span>
           <h2 className="mt-4 text-3xl font-bold text-slate-900 md:text-4xl">
-            Elige el plan perfecto para tu negocio
+            Precios para implementación de sistema
           </h2>
           <p className="mt-3 text-lg text-slate-600">
-            Pago inicial + mensualidad. Precios transparentes sin sorpresas
+            Pago inicial + mensualidad (soporte y mejoras). Precios transparentes
           </p>
         </motion.div>
 
@@ -197,7 +197,7 @@ export default function PricingComparison() {
                       : 'bg-slate-100 text-slate-900 hover:bg-slate-200'
                   }`}
                 >
-                  {plan.price === 'Contactar' ? 'Hablar con ventas' : 'Comenzar ahora'}
+                  {plan.price === 'Contactar' ? 'Hablar con nosotros' : 'Solicitar propuesta'}
                 </motion.button>
               </Link>
             </motion.div>

@@ -1,6 +1,7 @@
 import Hero from '@/components/Hero';
 import TrustBar from '@/components/TrustBar';
 import Services from '@/components/Services';
+import HowWeWork from '@/components/HowWeWork';
 import EnterpriseFeatures from '@/components/EnterpriseFeatures';
 import TrustBadges from '@/components/TrustBadges';
 import Integrations from '@/components/Integrations';
@@ -15,6 +16,7 @@ export default function HomePage() {
       <Hero />
       <TrustBar />
       <Services />
+      <HowWeWork />
       <EnterpriseFeatures />
       <TrustBadges />
       <Integrations />

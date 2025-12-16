@@ -89,14 +89,14 @@ export default function Hero() {
               id="hero-title"
               className="mt-6 text-4xl font-extrabold leading-tight md:text-5xl lg:text-6xl"
             >
-              Sistemas POS e Inventarios
+              Desarrollo de software a medida
               <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="block bg-gradient-to-r from-gold-300 to-gold-500 bg-clip-text text-transparent"
               >
-                para hacer crecer tu negocio
+                para automatizar y escalar tu negocio
               </motion.span>
             </motion.h1>
 
@@ -106,8 +106,8 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="mt-6 max-w-xl text-lg text-white/90 md:text-xl"
             >
-              Software personalizado que automatiza tus operaciones: control de inventario,
-              punto de venta, facturación electrónica y reportes en tiempo real.
+              Construimos sistemas web, apps móviles, POS e inventarios, integraciones y dashboards
+              con un enfoque claro: performance, seguridad y soporte.
             </motion.p>
 
             <motion.div
@@ -171,9 +171,9 @@ export default function Hero() {
               className="mt-10 flex flex-wrap items-center gap-6 text-sm text-white/80"
             >
               {[
-                'Soporte local 24/7',
-                'Instalación incluida',
-                'Capacitación completa',
+                'Soporte local y acompañamiento',
+                'Implementación guiada',
+                'Capacitación para tu equipo',
               ].map((text, i) => (
                 <motion.div
                   key={text}
@@ -235,7 +235,7 @@ export default function Hero() {
                 <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
                   <Image
                     src="/assets/images/responsive-devices.png"
-                    alt="Sistema POS e Inventario - MIMAR Solutions"
+                    alt="Soluciones de software - MIMAR Solutions"
                     width={1200}
                     height={800}
                     priority

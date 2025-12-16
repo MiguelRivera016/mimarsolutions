@@ -94,7 +94,7 @@ export default function Portfolio({ withCTA = true }: { withCTA?: boolean }) {
             </span>
             <h2 className="mt-3 text-2xl font-bold md:text-3xl">Proyectos realizados</h2>
             <p className="mt-2 max-w-2xl text-ink-600">
-              Ejemplos de sistemas POS, inventarios, dashboards, integraciones y apps.
+              Ejemplos de soluciones que podemos construir: POS, inventarios, dashboards, integraciones y apps.
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
