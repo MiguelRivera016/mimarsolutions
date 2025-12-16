@@ -10,8 +10,8 @@ const badges = [
   },
   {
     icon: '⚡',
-    title: '99.9% Uptime',
-    description: 'Disponibilidad garantizada',
+    title: 'Alta disponibilidad',
+    description: 'Monitoreo y buenas prácticas',
     color: 'from-blue-500 to-blue-600',
   },
   {
@@ -22,8 +22,8 @@ const badges = [
   },
   {
     icon: '💬',
-    title: 'Soporte 24/7',
-    description: 'Respuesta en minutos',
+    title: 'Soporte',
+    description: 'Canales y tiempos claros',
     color: 'from-orange-500 to-orange-600',
   },
   {
@@ -34,8 +34,8 @@ const badges = [
   },
   {
     icon: '✓',
-    title: '5 Años',
-    description: 'De experiencia comprobada',
+    title: 'Experiencia técnica',
+    description: 'Arquitectura y buenas prácticas',
     color: 'from-indigo-500 to-indigo-600',
   },
 ];

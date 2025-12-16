@@ -5,8 +5,9 @@ import Link from 'next/link';
 const plans = [
   {
     name: 'Básico',
-    price: 'L. 8,500',
-    description: 'Ideal para pequeños negocios',
+    price: 'L. 15,999',
+    monthly: 'L. 299',
+    description: 'Para iniciar con POS e inventario',
     popular: false,
     features: [
       { name: 'Hasta 3 usuarios', included: true },
@@ -21,8 +22,9 @@ const plans = [
   },
   {
     name: 'Profesional',
-    price: 'L. 12,000',
-    description: 'Lo más popular para empresas',
+    price: 'L. 29,999',
+    monthly: 'L. 599',
+    description: 'Recomendado para operación completa',
     popular: true,
     features: [
       { name: 'Hasta 10 usuarios', included: true },
@@ -80,13 +82,13 @@ export default function PricingComparison() {
           className="text-center"
         >
           <span className="inline-block rounded-full bg-brand-100 px-4 py-1.5 text-sm font-medium text-brand-700">
-            Planes y precios
+            POS e Inventarios
           </span>
           <h2 className="mt-4 text-3xl font-bold text-slate-900 md:text-4xl">
-            Elige el plan perfecto para tu negocio
+            Precios para implementación de sistema
           </h2>
           <p className="mt-3 text-lg text-slate-600">
-            Precios transparentes sin sorpresas. Todos incluyen actualizaciones gratis
+            Pago inicial + mensualidad (soporte y mejoras). Precios transparentes
           </p>
         </motion.div>
 
@@ -129,9 +131,15 @@ export default function PricingComparison() {
                 <div className="flex items-baseline gap-2">
                   <span className="text-4xl font-extrabold text-slate-900">{plan.price}</span>
                   {plan.price !== 'Contactar' && (
-                    <span className="text-sm text-slate-600">/ una vez</span>
+                    <span className="text-sm text-slate-600">/ pago inicial</span>
                   )}
                 </div>
+                {plan.price !== 'Contactar' && plan.monthly && (
+                  <div className="mt-2 text-sm text-slate-700">
+                    <span className="font-semibold text-slate-900">+ {plan.monthly}</span>{' '}
+                    <span className="text-slate-600">/ mes</span>
+                  </div>
+                )}
               </div>
 
               {/* Features */}
@@ -189,7 +197,7 @@ export default function PricingComparison() {
                       : 'bg-slate-100 text-slate-900 hover:bg-slate-200'
                   }`}
                 >
-                  {plan.price === 'Contactar' ? 'Hablar con ventas' : 'Comenzar ahora'}
+                  {plan.price === 'Contactar' ? 'Hablar con nosotros' : 'Solicitar propuesta'}
                 </motion.button>
               </Link>
             </motion.div>

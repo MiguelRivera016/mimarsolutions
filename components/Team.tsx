@@ -51,7 +51,7 @@ export default function Team() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-2xl font-bold text-slate-900">Nuestro equipo</h2>
-          <p className="mt-2 text-slate-600">Profesionales comprometidos con tu éxito</p>
+          <p className="mt-2 text-slate-600">Profesionales comprometidos con tu proyecto</p>
         </motion.div>
 
         <motion.div
