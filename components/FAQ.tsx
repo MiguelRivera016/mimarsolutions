@@ -41,7 +41,7 @@ const faqs = [
   {
     question: '¿Puedo probar el sistema antes de comprar?',
     answer:
-      'Por supuesto. Ofrecemos una demo gratuita de 14 días con acceso completo a todas las funcionalidades. También puedes agendar una sesión guiada con nuestro equipo para ver el sistema en acción.',
+      'Sí. Podemos mostrarte un recorrido breve y aclarar requisitos en una llamada. Si ya tienes un proceso definido, te enviamos una propuesta/cotización clara por WhatsApp o correo.',
   },
 ];
 

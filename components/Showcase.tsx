@@ -8,7 +8,7 @@ export default function Showcase() {
   return (
     <section className="bg-slate-50/60">
       <div className="mx-auto max-w-screen-xl px-6 py-16">
-        <h2 className="text-2xl font-bold text-slate-900">Casos destacados</h2>
+        <h2 className="text-2xl font-bold text-slate-900">Soluciones destacadas</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           {items.map((it) => (
             <div key={it.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">

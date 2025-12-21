@@ -21,7 +21,6 @@ export default function HomePage() {
       <Integrations />
       <PricingComparison />
       <Portfolio withCTA={false} />
-      <Testimonials />
       <FAQ />
       <CTA />
     </>

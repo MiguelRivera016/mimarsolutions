@@ -61,7 +61,7 @@ export default function Testimonials() {
           className="text-center"
         >
           <span className="inline-block rounded-full bg-gold-100 px-4 py-1.5 text-sm font-medium text-gold-700">
-            Casos de éxito
+            Testimonios
           </span>
           <h2 className="mt-4 text-3xl font-bold text-slate-900 md:text-4xl">
             Empresas que confían en nosotros

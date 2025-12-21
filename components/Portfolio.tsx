@@ -47,7 +47,7 @@ export default function Portfolio({ withCTA=false }:{ withCTA?:boolean }){
         transition={{ duration: 0.5 }}
       >
         <h2 className="text-2xl font-bold">Proyectos realizados</h2>
-        <p className="mt-2 max-w-2xl text-ink-600">Casos reales con capturas de pantalla y mockups 3D.</p>
+        <p className="mt-2 max-w-2xl text-ink-600">Proyectos reales con capturas de pantalla y mockups 3D.</p>
       </motion.div>
 
       <motion.div
