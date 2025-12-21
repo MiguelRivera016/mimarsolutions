@@ -10,11 +10,13 @@ export default function Footer() {
           <div className="grid items-center gap-6 md:grid-cols-3">
             <div className="md:col-span-2">
               <h2 className="text-2xl font-bold">
-                ¿Listo para impulsar su proyecto?
+                ¿Listo para cotizar su proyecto?
               </h2>
               <p className="mt-2 text-white/90">
-                Agenda una llamada o envíanos tu idea. Respuesta ágil por
-                WhatsApp o correo.
+                Envíanos tu idea y te respondemos rápido por WhatsApp o correo.
+                <span className="ml-2 inline-flex items-center rounded-full bg-white/15 px-2 py-0.5 text-xs font-semibold ring-1 ring-white/25">
+                  ✅ Garantía 30 días devolución
+                </span>
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-3 md:justify-end">
@@ -55,8 +57,32 @@ export default function Footer() {
           </div>
           <p className="mt-3 text-sm text-ink-600">{COMPANY.description}</p>
           <p className="mt-2 text-xs text-ink-600">
-            <strong>{COMPANY.location.city}, {COMPANY.location.country}</strong>
+            <strong>
+              {COMPANY.location.city}, {COMPANY.location.country}
+            </strong>
           </p>
+
+          <div className="mt-4 space-y-2 text-sm text-ink-700">
+            <div className="flex items-center justify-between gap-3 rounded-lg bg-slate-50 px-3 py-2 ring-1 ring-slate-100">
+              <span className="font-semibold">Horario</span>
+              <span className="text-ink-600">Lun a Sáb, 8:00 AM - 6:00 PM</span>
+            </div>
+            <div className="flex items-center justify-between gap-3 rounded-lg bg-emerald-50 px-3 py-2 ring-1 ring-emerald-100">
+              <span className="font-semibold">Garantía</span>
+              <span className="text-emerald-800">✅ 30 días devolución</span>
+            </div>
+            <div className="rounded-lg bg-slate-50 px-3 py-2 ring-1 ring-slate-100">
+              <div className="flex items-center justify-between gap-3">
+                <span className="font-semibold">Pagos</span>
+                <span className="text-ink-600">Formas aceptadas</span>
+              </div>
+              <div className="mt-1 flex flex-wrap gap-2 text-xs text-ink-600">
+                <span className="rounded-full bg-white px-2 py-0.5 ring-1 ring-slate-200">Transferencia</span>
+                <span className="rounded-full bg-white px-2 py-0.5 ring-1 ring-slate-200">Depósito</span>
+                <span className="rounded-full bg-white px-2 py-0.5 ring-1 ring-slate-200">Tarjeta (link)</span>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Servicios */}
@@ -161,27 +187,42 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Contacto + redes */}
+        {/* Fundadores + contacto */}
         <div>
-          <h4 className="text-sm font-semibold">Contacto</h4>
+          <h4 className="text-sm font-semibold">Fundadores</h4>
           <ul className="mt-3 space-y-2 text-sm text-ink-600">
-            <li>
-              <a
-                href={`mailto:${COMPANY.email}`}
-                className="transition-colors hover:text-brand-600 hover:underline"
-              >
-                {COMPANY.email}
-              </a>
+            <li className="flex items-center justify-between gap-3">
+              <span className="font-medium text-ink-700">Miguel Rivera</span>
+              <span className="text-xs">Dev</span>
             </li>
-            <li>
-              <a
-                href={`tel:${COMPANY.phoneRaw}`}
-                className="transition-colors hover:text-brand-600 hover:underline"
-              >
-                {COMPANY.phone}
-              </a>
+            <li className="flex items-center justify-between gap-3">
+              <span className="font-medium text-ink-700">María Matehu</span>
+              <span className="text-xs">Admin</span>
             </li>
           </ul>
+
+          <h4 className="mt-6 text-sm font-semibold">Contacto</h4>
+          <div className="mt-3 grid gap-2">
+            <a
+              href={`https://wa.me/${COMPANY.phoneRaw}`}
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-emerald-700"
+              aria-label="Contactar por WhatsApp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>WhatsApp</span>
+            </a>
+            <a
+              href={`mailto:${COMPANY.email}`}
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-brand-50 px-4 py-2.5 text-sm font-semibold text-brand-700 ring-1 ring-brand-100 transition-colors hover:bg-brand-100"
+              aria-label="Enviar correo"
+            >
+              <span>Email</span>
+            </a>
+            <p className="text-xs text-ink-600">
+              Respuesta en horario: <strong>Lun a Sáb, 8:00 AM - 6:00 PM</strong>
+            </p>
+          </div>
 
           <div className="mt-4 flex items-center gap-3">
             <a
