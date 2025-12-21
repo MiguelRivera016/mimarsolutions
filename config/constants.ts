@@ -2,8 +2,16 @@
 
 export const COMPANY = {
   name: 'MIMAR Solutions',
-  tagline: 'Construyendo el futuro digital',
-  description: 'Empresa hondureña especializada en desarrollo web, aplicaciones móviles y soluciones digitales personalizadas.',
+  tagline: 'Desarrollo Web Que Sí Podés Pagar',
+  description:
+    'Equipo hondureño de desarrollo web y apps. Precios justos, contratos claros, resultados garantizados.',
+
+  team: {
+    founders: [
+      { name: 'Miguel Rivera', role: 'Desarrollo & Tecnología' },
+      { name: 'María Matehu', role: 'Administración & Ventas', title: 'Lic.' },
+    ],
+  },
 
   // Contacto
   phone: '+504 9387-0479',
@@ -43,25 +51,13 @@ export const BRAND_COLORS = {
 // Rutas centrales del sitio (evita "hardcodear" strings)
 export const ROUTES = {
   home: '/',
-  sobre: '/sobre',
   servicios: '/servicios',
-  proyectos: '/proyectos',
+  precios: '/precios',
+  sobre: '/sobre',
   blog: '/blog',
-  cotizar: '/cotizar',
   privacidad: '/privacidad',
-
-  ecosistema: '/ecosistema',
-  ecosistemaMimarApp: '/ecosistema/mimarapp',
-  ecosistemaMimarDrive: '/ecosistema/mimar-drive',
-  ecosistemaMimarFood: '/ecosistema/mimar-food',
-
-  serviciosWhiteLabel: '/servicios/apps-white-label',
-
-  industrias: '/industrias',
-  industriasRestaurantes: '/industrias/restaurantes',
-  industriasRetail: '/industrias/tiendas-retail',
-  industriasFarmacias: '/industrias/farmacias',
-  industriasSupermercados: '/industrias/supermercados',
+  // Por ahora, "Contacto" apunta a la ruta existente /cotizar
+  contacto: '/cotizar',
 } as const;
 
 export type NavBadge = 'new' | 'hot' | 'beta';
@@ -75,6 +71,8 @@ export type NavLinkItem = {
   badge?: NavBadge;
 };
 
+// Mantengo el tipo dropdown por compatibilidad del Navbar actual,
+// pero por ahora NO lo usamos en NAVIGATION (navegación simple).
 export type NavDropdownItem = {
   type: 'dropdown';
   name: string;
@@ -83,86 +81,14 @@ export type NavDropdownItem = {
 
 export type NavigationItem = NavLinkItem | NavDropdownItem;
 
+// Navegación enfocada en conversión (sin dropdowns por ahora)
 export const NAVIGATION: NavigationItem[] = [
   { type: 'link', name: 'Inicio', href: ROUTES.home },
-  {
-    type: 'dropdown',
-    name: 'Ecosistema Mimar',
-    items: [
-      {
-        type: 'link',
-        name: 'Visión general',
-        href: ROUTES.ecosistema,
-        description: 'Conoce el Ecosistema Mimar y sus soluciones conectadas.',
-      },
-      {
-        type: 'link',
-        name: 'MimarApp',
-        href: ROUTES.ecosistemaMimarApp,
-        description: 'App principal del ecosistema (clientes/operación).',
-        badge: 'new',
-      },
-      {
-        type: 'link',
-        name: 'Mimar Drive',
-        href: ROUTES.ecosistemaMimarDrive,
-        description: 'Logística y entregas para operaciones modernas.',
-        badge: 'new',
-      },
-      {
-        type: 'link',
-        name: 'Mimar Food',
-        href: ROUTES.ecosistemaMimarFood,
-        description: 'Solución para restaurantes, pedidos y delivery.',
-        badge: 'new',
-      },
-    ],
-  },
-  {
-    type: 'dropdown',
-    name: 'Servicios',
-    items: [
-      {
-        type: 'link',
-        name: 'Todos los servicios',
-        href: ROUTES.servicios,
-        description: 'Desarrollo web, apps, e-commerce, SEO y mantenimiento.',
-      },
-      {
-        type: 'link',
-        name: 'Apps White Label',
-        href: ROUTES.serviciosWhiteLabel,
-        description: 'Tu app lista para vender bajo tu marca (servicio estrella).',
-        badge: 'hot',
-      },
-      {
-        type: 'link',
-        name: 'Software Empresarial (POS/Inventarios)',
-        href: '/apps',
-        description: 'POS, Inventario IT, control de asistencia y más.',
-      },
-    ],
-  },
-  {
-    type: 'dropdown',
-    name: 'Industrias',
-    items: [
-      {
-        type: 'link',
-        name: 'Índice de industrias',
-        href: ROUTES.industrias,
-        description: 'Soluciones por tipo de negocio.',
-      },
-      { type: 'link', name: 'Restaurantes', href: ROUTES.industriasRestaurantes },
-      { type: 'link', name: 'Tiendas retail', href: ROUTES.industriasRetail },
-      { type: 'link', name: 'Farmacias', href: ROUTES.industriasFarmacias },
-      { type: 'link', name: 'Supermercados', href: ROUTES.industriasSupermercados },
-    ],
-  },
+  { type: 'link', name: 'Servicios', href: ROUTES.servicios },
+  { type: 'link', name: 'Precios', href: ROUTES.precios },
   { type: 'link', name: 'Sobre Nosotros', href: ROUTES.sobre },
-  { type: 'link', name: 'Proyectos', href: ROUTES.proyectos },
   { type: 'link', name: 'Blog', href: ROUTES.blog },
-  { type: 'link', name: 'Cotizar', href: ROUTES.cotizar, highlight: true },
+  { type: 'link', name: 'Contacto', href: ROUTES.contacto, highlight: true },
 ] as const;
 
 export const SERVICES = [
@@ -204,59 +130,113 @@ export const SERVICES = [
   },
 ] as const;
 
-export const WHITE_LABEL_PRICING = {
-  currency: 'HNL',
-  plans: [
-    {
-      id: 'starter',
-      name: 'Starter',
-      subtitle: 'Para validar mercado',
-      priceFrom: 14999,
-      period: 'mes',
-      highlight: false,
-      features: [
-        'Branding básico (logo/colores)',
-        'Publicación guiada',
-        'Panel básico',
-        'Soporte estándar',
-      ],
-    },
-    {
-      id: 'growth',
-      name: 'Growth',
-      subtitle: 'Para crecer ventas',
-      priceFrom: 29999,
-      period: 'mes',
-      highlight: true,
-      badge: 'hot' as NavBadge,
-      features: [
-        'Branding completo',
-        'Módulos premium (según stack)',
-        'Analíticas y eventos',
-        'Soporte prioritario',
-      ],
-    },
-    {
-      id: 'enterprise',
-      name: 'Enterprise',
-      subtitle: 'Para operación a escala',
-      priceFrom: null as number | null,
-      period: 'cotización',
-      highlight: false,
-      features: [
-        'Integraciones (ERP/POS/Payment)',
-        'SLA y soporte dedicado',
-        'Seguridad avanzada',
-        'Roadmap conjunto',
-      ],
-    },
-  ],
+// Contacto preferido (enfocado en respuesta rápida)
+export const CONTACT = {
+  whatsapp: {
+    number: '50493870479',
+    message: 'Hola! Quisiera información sobre sus servicios',
+  },
+  hours: 'Lunes a Sábado, 8:00 AM - 6:00 PM',
 } as const;
+
+// Packs de precios (ventas/transparencia)
+export const PRICING_PACKS = {
+  web: {
+    starter: {
+      name: 'Pack Starter',
+      price: 8999,
+      description: 'Perfecto para empezar tu presencia online',
+      features: [
+        'Sitio web 5 páginas',
+        'Diseño responsivo (móvil y PC)',
+        'Formulario de contacto',
+        'Integración WhatsApp',
+        '3 meses hosting gratis',
+        '6 meses soporte incluido',
+        'Capacitación básica',
+      ],
+      deliveryTime: '2 semanas',
+      idealFor: 'Negocios nuevos o pequeños',
+    },
+    business: {
+      name: 'Pack Negocio',
+      price: 18999,
+      popular: true,
+      description: 'La opción más elegida por negocios establecidos',
+      features: [
+        'Todo del Pack Starter +',
+        'Hasta 10 páginas',
+        'Catálogo productos (hasta 50)',
+        'Google Maps integrado',
+        'Google Analytics',
+        'SEO básico incluido',
+        '6 meses hosting gratis',
+        '1 año soporte incluido',
+      ],
+      deliveryTime: '3-4 semanas',
+      idealFor: 'Negocios establecidos',
+    },
+    ecommerce: {
+      name: 'Pack E-Commerce',
+      price: 35999,
+      description: 'Tienda online completa lista para vender',
+      features: [
+        'Tienda online completa',
+        'Productos ilimitados',
+        'Carrito de compras',
+        'Múltiples métodos de pago',
+        'Inventario automático',
+        'Reportes de ventas',
+        '1 año hosting gratis',
+        '1 año soporte incluido',
+        'Capacitación completa',
+      ],
+      deliveryTime: '4-6 semanas',
+      idealFor: 'Vender online profesionalmente',
+    },
+  },
+  addons: {
+    hosting: { name: 'Hosting anual', price: 3599 },
+    domain: { name: 'Dominio .com', price: 899 },
+    email: { name: 'Correos profesionales (5)', price: 1999 },
+    maintenance: { name: 'Mantenimiento mensual', price: 999 },
+    seo: { name: 'SEO mensual', price: 2999 },
+  },
+  payment: {
+    initial: 50, // porcentaje inicial
+    final: 50, // al entregar
+    guarantee: 30, // días garantía devolución
+  },
+} as const;
+
+export const VALUE_PROPS = [
+  {
+    icon: '💰',
+    title: 'Precios en Lempiras',
+    description: 'Sin sorpresas en dólares. Precio fijo y claro.',
+  },
+  {
+    icon: '🤝',
+    title: 'Equipo Local',
+    description: 'Reuniones en persona. Soporte en tu idioma y horario.',
+  },
+  {
+    icon: '✨',
+    title: 'Garantía 30 Días',
+    description: 'Si no estás satisfecho, te devolvemos tu dinero.',
+  },
+  {
+    icon: '🚀',
+    title: 'Entrega Rápida',
+    description: 'Tu sitio listo en 2-4 semanas, garantizado.',
+  },
+] as const;
 
 export const METADATA = {
   default: {
     title: 'MIMAR Solutions - Desarrollo Web y Apps en Honduras',
-    description: 'Empresa hondureña líder en desarrollo web, aplicaciones móviles y soluciones digitales. Transformamos ideas en realidad digital.',
+    description:
+      'Equipo hondureño de desarrollo web y apps. Precios justos, contratos claros, resultados garantizados.',
     keywords: [
       'desarrollo web',
       'aplicaciones móviles',
@@ -266,14 +246,11 @@ export const METADATA = {
       'Honduras',
       'Tegucigalpa',
       'desarrollo software',
-      'ecosistema mimar',
-      'mimarapp',
-      'mimar drive',
-      'mimar food',
-      'apps white label',
-      'app white label honduras',
-      'aplicaciones bajo marca',
-      'saas white label',
+      'precios en lempiras',
+      'sitios web baratos honduras',
+      'desarrollo web tegucigalpa',
+      'hosting honduras',
+      'mantenimiento web',
     ],
   },
   openGraph: {
