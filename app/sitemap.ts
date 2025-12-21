@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const baseUrl = 'https://mimar.solutions';
+  const baseUrl = 'https://www.mimarsolutions.lat';
 
   const routes = [
     '',
@@ -10,7 +10,7 @@ export default function sitemap() {
     '/apps',
     '/blog',
     '/cotizar',
-    '/privacidad'
+    '/privacidad',
   ];
 
   return routes.map((route) => ({
