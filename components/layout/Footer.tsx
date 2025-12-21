@@ -1,72 +1,121 @@
+'use client';
+
 import Link from 'next/link';
-import { COMPANY, CONTACT } from '@/lib/constants';
+import { HiMail, HiPhone, HiLocationMarker, HiClock } from 'react-icons/hi';
 
 export default function Footer() {
-  const waHref = `https://wa.me/${CONTACT.whatsapp.number}?text=${encodeURIComponent(CONTACT.whatsapp.message)}`;
-
   return (
-    <footer className="border-t bg-white">
-      <div className="container-pro grid gap-10 px-6 py-12 md:grid-cols-3">
-        <div>
-          <div className="text-sm font-bold text-slate-900">{COMPANY.name}</div>
-          <p className="mt-2 text-sm text-slate-600">{COMPANY.description}</p>
-          <p className="mt-3 text-xs text-slate-500">{COMPANY.location}</p>
-        </div>
-
-        <div>
-          <div className="text-sm font-semibold text-slate-900">Contacto</div>
-          <div className="mt-3 grid gap-2">
-            <a
-              href={waHref}
-              className="inline-flex items-center justify-center rounded-xl bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-700"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              WhatsApp
-            </a>
-            <a
-              href={`mailto:${COMPANY.email}`}
-              className="inline-flex items-center justify-center rounded-xl bg-white px-4 py-2.5 text-sm font-semibold text-brand-700 ring-1 ring-slate-200 hover:bg-slate-50"
-            >
-              Email
-            </a>
-            <p className="text-xs text-slate-600">
-              Horario: <strong>{CONTACT.hours}</strong>
+    <footer className="bg-gray-900 text-gray-300">
+      {/* Main Footer */}
+      <div className="container py-16">
+        <div className="grid md:grid-cols-4 gap-8">
+          {/* Brand */}
+          <div className="md:col-span-2">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                <span className="text-blue-600 font-bold text-xl">M</span>
+              </div>
+              <span className="text-white font-bold text-xl">MIMAR Solutions</span>
+            </div>
+            <p className="text-gray-400 mb-6 max-w-sm">
+              Desarrollo web profesional y accesible para negocios hondureños. Tu socio tecnológico de confianza.
             </p>
+            <div className="flex gap-4">
+              <a
+                href="#"
+                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors"
+              >
+                <span className="sr-only">Facebook</span>f
+              </a>
+              <a
+                href="#"
+                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors"
+              >
+                <span className="sr-only">Instagram</span>ig
+              </a>
+              <a
+                href="#"
+                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors"
+              >
+                <span className="sr-only">LinkedIn</span>in
+              </a>
+            </div>
           </div>
-        </div>
 
-        <div>
-          <div className="text-sm font-semibold text-slate-900">Enlaces</div>
-          <ul className="mt-3 space-y-2 text-sm text-slate-600">
-            <li>
-              <Link className="hover:text-brand-600 hover:underline" href="/servicios">
-                Servicios
-              </Link>
-            </li>
-            <li>
-              <Link className="hover:text-brand-600 hover:underline" href="/proyectos">
-                Proyectos
-              </Link>
-            </li>
-            <li>
-              <Link className="hover:text-brand-600 hover:underline" href="/nosotros">
-                Nosotros
-              </Link>
-            </li>
-            <li>
-              <Link className="hover:text-brand-600 hover:underline" href="/contacto">
-                Contacto
-              </Link>
-            </li>
-          </ul>
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-white font-semibold mb-4">Enlaces Rápidos</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/servicios" className="hover:text-white transition-colors">
+                  Servicios
+                </Link>
+              </li>
+              <li>
+                <Link href="/proyectos" className="hover:text-white transition-colors">
+                  Proyectos
+                </Link>
+              </li>
+              <li>
+                <Link href="/nosotros" className="hover:text-white transition-colors">
+                  Nosotros
+                </Link>
+              </li>
+              <li>
+                <Link href="/contacto" className="hover:text-white transition-colors">
+                  Contacto
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h3 className="text-white font-semibold mb-4">Contacto</h3>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3">
+                <HiPhone className="w-5 h-5 text-gray-400 mt-0.5" />
+                <div>
+                  <a href="tel:50493870479" className="hover:text-white transition-colors">
+                    +504 9387-0479
+                  </a>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <HiMail className="w-5 h-5 text-gray-400 mt-0.5" />
+                <a href="mailto:mimargrouphn@gmail.com" className="hover:text-white transition-colors">
+                  mimargrouphn@gmail.com
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <HiLocationMarker className="w-5 h-5 text-gray-400 mt-0.5" />
+                <span>Tegucigalpa, Honduras</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <HiClock className="w-5 h-5 text-gray-400 mt-0.5" />
+                <span>Lun-Sáb: 8AM-6PM</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
-      <div className="border-t">
-        <div className="container-pro flex flex-col items-center justify-between gap-3 px-6 py-4 text-xs text-slate-500 md:flex-row">
-          <p>© {new Date().getFullYear()} {COMPANY.name}. Todos los derechos reservados.</p>
-          <p>Hecho en Honduras.</p>
+      {/* Bottom Bar */}
+      <div className="border-t border-gray-800">
+        <div className="container py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-sm text-gray-400">© {new Date().getFullYear()} MIMAR Solutions. Todos los derechos reservados.</p>
+            <div className="flex items-center gap-6 text-sm">
+              <Link href="/privacidad" className="hover:text-white transition-colors">
+                Privacidad
+              </Link>
+              <Link href="/terminos" className="hover:text-white transition-colors">
+                Términos
+              </Link>
+              <span className="text-gray-500">|</span>
+              <span className="flex items-center gap-2">Hecho con 💙 en Honduras</span>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
