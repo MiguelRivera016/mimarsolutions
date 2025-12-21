@@ -15,7 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="es">
       <body>
         <Header />
-        <main>{children}</main>
+        <main className="pt-16 md:pt-20">{children}</main>
         <Footer />
         <WhatsAppButton />
       </body>
