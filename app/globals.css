@@ -141,6 +141,10 @@
     @apply bg-amber-100 text-amber-800;
   }
 
+  .badge-secondary {
+    @apply bg-gray-100 text-gray-700;
+  }
+
   /* Animations */
   @keyframes float {
     0%,
