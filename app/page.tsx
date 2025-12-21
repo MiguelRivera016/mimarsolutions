@@ -1,12 +1,12 @@
 import Hero from '@/components/Hero';
-import LiveStats from '@/components/LiveStats';
+import TrustBar from '@/components/TrustBar';
 import Services from '@/components/Services';
+import HowWeWork from '@/components/HowWeWork';
 import EnterpriseFeatures from '@/components/EnterpriseFeatures';
 import TrustBadges from '@/components/TrustBadges';
 import Integrations from '@/components/Integrations';
 import PricingComparison from '@/components/PricingComparison';
 import Portfolio from '@/components/Portfolio';
-import Testimonials from '@/components/Testimonials';
 import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
 
@@ -14,8 +14,9 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <LiveStats />
+      <TrustBar />
       <Services />
+      <HowWeWork />
       <EnterpriseFeatures />
       <TrustBadges />
       <Integrations />

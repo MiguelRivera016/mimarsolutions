@@ -57,7 +57,7 @@ export default function CTA(){
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-2 max-w-2xl text-white/90"
           >
-            Solicita una cotización clara para tu proyecto. Respondemos rápido por WhatsApp o correo.
+            Agenda una llamada o solicita una propuesta clara para tu software.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
