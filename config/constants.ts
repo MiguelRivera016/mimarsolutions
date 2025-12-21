@@ -26,7 +26,7 @@ export const COMPANY = {
   },
 
   // URLs
-  url: 'https://mimar.solutions',
+  url: 'https://www.mimarsolutions.lat',
   logo: '/assets/branding/logo.png',
   logoAlt: 'MIMAR Solutions Logo',
 } as const;

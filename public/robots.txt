@@ -8,7 +8,7 @@ Allow: /
 # Disallow: /admin/
 
 # Sitemap
-Sitemap: https://mimar.solutions/sitemap.xml
+Sitemap: https://www.mimarsolutions.lat/sitemap.xml
 
 # Crawl-delay (optional, uncomment if needed)
 # Crawl-delay: 1
