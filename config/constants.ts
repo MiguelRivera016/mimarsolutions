@@ -2,8 +2,16 @@
 
 export const COMPANY = {
   name: 'MIMAR Solutions',
-  tagline: 'Construyendo el futuro digital',
-  description: 'Empresa hondureña especializada en desarrollo web, aplicaciones móviles y soluciones digitales personalizadas.',
+  tagline: 'Desarrollo Web Que Sí Podés Pagar',
+  description:
+    'Equipo hondureño de desarrollo web y apps. Precios justos, contratos claros, resultados garantizados.',
+
+  team: {
+    founders: [
+      { name: 'Miguel Rivera', role: 'Desarrollo & Tecnología' },
+      { name: 'María Matehu', role: 'Administración & Ventas', title: 'Lic.' },
+    ],
+  },
 
   // Contacto
   phone: '+504 9387-0479',
@@ -42,11 +50,116 @@ export const BRAND_COLORS = {
 
 export const NAVIGATION = [
   { name: 'Inicio', href: '/' },
-  { name: 'Sobre Nosotros', href: '/sobre' },
   { name: 'Servicios', href: '/servicios' },
-  { name: 'Proyectos', href: '/proyectos' },
+  { name: 'Precios', href: '/precios' },
+  { name: 'Sobre Nosotros', href: '/sobre' },
   { name: 'Blog', href: '/blog' },
-  { name: 'Cotizar', href: '/cotizar', highlight: true },
+  // Nota: por ahora "Contacto" apunta a la página de cotización.
+  { name: 'Contacto', href: '/cotizar', highlight: true },
+] as const;
+
+export const PRICING_PACKS = {
+  web: {
+    starter: {
+      name: 'Pack Starter',
+      price: 8999,
+      description: 'Perfecto para empezar tu presencia online',
+      features: [
+        'Sitio web 5 páginas',
+        'Diseño responsivo (móvil y PC)',
+        'Formulario de contacto',
+        'Integración WhatsApp',
+        '3 meses hosting gratis',
+        '6 meses soporte incluido',
+        'Capacitación básica',
+      ],
+      deliveryTime: '2 semanas',
+      idealFor: 'Negocios nuevos o pequeños',
+    },
+    business: {
+      name: 'Pack Negocio',
+      price: 18999,
+      popular: true,
+      description: 'La opción más elegida por negocios establecidos',
+      features: [
+        'Todo del Pack Starter +',
+        'Hasta 10 páginas',
+        'Catálogo productos (hasta 50)',
+        'Google Maps integrado',
+        'Google Analytics',
+        'SEO básico incluido',
+        '6 meses hosting gratis',
+        '1 año soporte incluido',
+      ],
+      deliveryTime: '3-4 semanas',
+      idealFor: 'Negocios establecidos',
+    },
+    ecommerce: {
+      name: 'Pack E-Commerce',
+      price: 35999,
+      description: 'Tienda online completa lista para vender',
+      features: [
+        'Tienda online completa',
+        'Productos ilimitados',
+        'Carrito de compras',
+        'Múltiples métodos de pago',
+        'Inventario automático',
+        'Reportes de ventas',
+        '1 año hosting gratis',
+        '1 año soporte incluido',
+        'Capacitación completa',
+      ],
+      deliveryTime: '4-6 semanas',
+      idealFor: 'Vender online profesionalmente',
+    },
+  },
+  addons: {
+    hosting: { name: 'Hosting anual', price: 3599 },
+    domain: { name: 'Dominio .com', price: 899 },
+    email: { name: 'Correos profesionales (5)', price: 1999 },
+    maintenance: { name: 'Mantenimiento mensual', price: 999 },
+    seo: { name: 'SEO mensual', price: 2999 },
+  },
+  payment: {
+    initial: 50, // porcentaje inicial
+    final: 50, // al entregar
+    guarantee: 30, // días garantía devolución
+  },
+} as const;
+
+export const CONTACT = {
+  // Preferimos WhatsApp como canal principal
+  whatsapp: {
+    number: '50493870479',
+    message: 'Hola! Quisiera información sobre sus servicios',
+  },
+  email: COMPANY.email,
+  phone: COMPANY.phone,
+  phoneRaw: COMPANY.phoneRaw,
+  hours: 'Lunes a Sábado, 8:00 AM - 6:00 PM',
+} as const;
+
+export const VALUE_PROPS = [
+  {
+    icon: '💰',
+    title: 'Precios en Lempiras',
+    description: 'Sin sorpresas en dólares. Precio fijo y claro.',
+  },
+  {
+    icon: '🤝',
+    title: 'Equipo Local',
+    description: 'Reuniones en persona. Soporte en tu idioma y horario.',
+  },
+  {
+    icon: '✨',
+    title: 'Garantía 30 Días',
+    description: 'Si no estás satisfecho, te devolvemos tu dinero.',
+  },
+  {
+    icon: '🚀',
+    title: 'Entrega Rápida',
+    description: 'Tu sitio listo en 2-4 semanas, garantizado.',
+  },
 ] as const;
 
 export const SERVICES = [
@@ -90,8 +203,8 @@ export const SERVICES = [
 
 export const METADATA = {
   default: {
-    title: 'MIMAR Solutions - Desarrollo Web y Apps en Honduras',
-    description: 'Empresa hondureña líder en desarrollo web, aplicaciones móviles y soluciones digitales. Transformamos ideas en realidad digital.',
+    title: 'MIMAR Solutions - Desarrollo web en Honduras',
+    description: COMPANY.description,
     keywords: [
       'desarrollo web',
       'aplicaciones móviles',
@@ -101,6 +214,7 @@ export const METADATA = {
       'Honduras',
       'Tegucigalpa',
       'desarrollo software',
+      'precios en lempiras',
     ],
   },
   openGraph: {
