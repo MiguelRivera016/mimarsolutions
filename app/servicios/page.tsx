@@ -1,25 +1,18 @@
-import { Metadata } from 'next';
-import Services from '@/components/Services';
-
-export const metadata: Metadata = {
-  title: 'Servicios',
-  description:
-    'Desarrollo web, aplicaciones móviles, e-commerce, SEO, diseño UI/UX y mantenimiento. Soluciones digitales completas para tu negocio en Honduras.',
-  keywords: [
-    'desarrollo web Honduras',
-    'apps móviles',
-    'e-commerce',
-    'SEO',
-    'diseño web',
-    'UI/UX',
-  ],
-  openGraph: {
-    title: 'Nuestros Servicios | MIMAR Solutions',
-    description:
-      'Servicios profesionales de desarrollo web, apps móviles, e-commerce y más. Soluciones digitales a medida.',
-  },
-};
+import Services from '@/components/home/Services';
 
 export default function ServiciosPage() {
-  return <Services />;
+  return (
+    <>
+      <section className="py-16">
+        <div className="container-pro px-6">
+          <h1 className="text-4xl font-bold text-slate-900">Servicios</h1>
+          <p className="mt-3 max-w-2xl text-slate-600">
+            Web, e-commerce y soporte. Sin humo. Con precios claros.
+          </p>
+        </div>
+      </section>
+      <Services />
+    </>
+  );
 }
+
