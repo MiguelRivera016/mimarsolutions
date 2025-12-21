@@ -2,11 +2,11 @@ import './globals.css';
 import type { Metadata } from 'next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import { COMPANY } from '@/lib/constants';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: COMPANY.name,
-  description: COMPANY.description,
+  title: SITE_CONFIG.name,
+  description: SITE_CONFIG.description,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

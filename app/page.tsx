@@ -2,11 +2,10 @@
 
 import Hero from '@/components/home/Hero';
 import Services from '@/components/home/Services';
-import Process from '@/components/home/Process';
 import Pricing from '@/components/home/Pricing';
+import Process from '@/components/home/Process';
 import Team from '@/components/home/Team';
 import CTA from '@/components/home/CTA';
-import WhatsAppButton from '@/components/common/WhatsAppButton';
 
 export default function HomePage() {
   return (
@@ -17,7 +16,6 @@ export default function HomePage() {
       <Process />
       <Team />
       <CTA />
-      <WhatsAppButton />
     </>
   );
 }

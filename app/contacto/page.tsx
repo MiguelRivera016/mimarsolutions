@@ -1,8 +1,8 @@
-import { COMPANY, CONTACT } from '@/lib/constants';
+import { SITE_CONFIG } from '@/lib/constants';
 import Card from '@/components/ui/Card';
 
 export default function ContactoPage() {
-  const waHref = `https://wa.me/${CONTACT.whatsapp.number}?text=${encodeURIComponent(
+  const waHref = `https://wa.me/${SITE_CONFIG.contact.whatsapp}?text=${encodeURIComponent(
     'Hola! Quisiera cotizar un sitio web.',
   )}`;
 
@@ -11,7 +11,7 @@ export default function ContactoPage() {
       <div className="container-pro px-6">
         <h1 className="text-4xl font-bold text-slate-900">Contacto</h1>
         <p className="mt-3 max-w-2xl text-slate-600">
-          Respuesta rápida por WhatsApp o correo. Horario: <strong>{CONTACT.hours}</strong>
+          Respuesta rápida por WhatsApp o correo. Horario: <strong>{SITE_CONFIG.contact.hours}</strong>
         </p>
 
         <div className="mt-10 grid gap-6 md:grid-cols-2">
@@ -31,8 +31,8 @@ export default function ContactoPage() {
           <Card>
             <h2 className="text-lg font-bold text-slate-900">Email</h2>
             <p className="mt-2 text-sm text-slate-600">Si preferís, escribinos con detalles.</p>
-            <a href={`mailto:${COMPANY.email}`} className="btn-ghost mt-6 w-full text-center">
-              {COMPANY.email}
+            <a href={`mailto:${SITE_CONFIG.contact.email}`} className="btn-ghost mt-6 w-full text-center">
+              {SITE_CONFIG.contact.email}
             </a>
           </Card>
         </div>

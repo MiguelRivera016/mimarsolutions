@@ -46,7 +46,18 @@ export const SITE_CONFIG = {
 } as const;
 
 // Founders/Team
-export const TEAM = [
+export type TeamMember = {
+  id: string;
+  name: string;
+  role: string;
+  title: string;
+  prefix?: string;
+  bio: string;
+  avatar: string;
+  skills: string[];
+};
+
+export const TEAM: TeamMember[] = [
   {
     id: 'miguel',
     name: 'Miguel Rivera',
@@ -66,7 +77,7 @@ export const TEAM = [
     avatar: '👩‍💼',
     skills: ['Gestión de Proyectos', 'Ventas', 'Atención al Cliente', 'Administración'],
   },
-] as const;
+] as TeamMember[];
 
 // Pricing
 export const PRICING_PLANS = [

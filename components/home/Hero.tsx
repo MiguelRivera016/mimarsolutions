@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { HiArrowRight, HiSparkles } from 'react-icons/hi';
-import { PRICING_PACKS } from '@/lib/constants';
+import { PRICING_PLANS } from '@/lib/constants';
 
 export default function Hero() {
   return (
@@ -51,7 +51,7 @@ export default function Hero() {
           >
             Sitios web profesionales desde{' '}
             <span className="font-bold text-gray-900">
-              L.{new Intl.NumberFormat('es-HN').format(PRICING_PACKS.web.starter.price)}
+              L.{new Intl.NumberFormat('es-HN').format(PRICING_PLANS[0].price)}
             </span>
             . Sin sorpresas, sin excusas. Equipo 100% hondureño.
           </motion.p>
