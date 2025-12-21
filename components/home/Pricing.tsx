@@ -1,14 +1,15 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import Link from 'next/link';
-import Card from '@/components/ui/Card';
-import Badge from '@/components/ui/Badge';
+import { HiCheck, HiLightningBolt } from 'react-icons/hi';
 import { CONTACT, PRICING_PACKS } from '@/lib/constants';
 
 function formatLempiras(value: number) {
-  return `L. ${new Intl.NumberFormat('es-HN', { maximumFractionDigits: 0 }).format(value)}`;
+  return `L.${new Intl.NumberFormat('es-HN', { maximumFractionDigits: 0 }).format(value)}`;
 }
 
 export default function Pricing() {
-  const waBase = `https://wa.me/${CONTACT.whatsapp.number}?text=`;
   const packs = [
     PRICING_PACKS.web.starter,
     PRICING_PACKS.web.business,
@@ -16,65 +17,87 @@ export default function Pricing() {
   ];
 
   return (
-    <section className="py-16">
-      <div className="container-pro px-6">
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <h2 className="text-3xl font-bold text-slate-900">Planes simples, precios claros</h2>
-            <p className="mt-2 max-w-2xl text-slate-600">
-              Sin letra pequeña. Lo que ves es lo que pagás.
-            </p>
-          </div>
-          <Link href="/contacto" className="btn-ghost">
-            Pedir recomendación →
-          </Link>
+    <section className="section">
+      <div className="container">
+        <div className="text-center max-w-3xl mx-auto">
+          <h2 className="mb-4">Planes Simples, Precios Claros</h2>
+          <p className="prose">Sin letra pequeña. Lo que ves es lo que pagás.</p>
         </div>
 
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {packs.map((p) => {
+        <div className="mt-12 grid gap-8 md:grid-cols-3">
+          {packs.map((p, idx) => {
             const popular = 'popular' in p && Boolean(p.popular);
             return (
-              <Card key={p.name} className={popular ? 'ring-brand-200 shadow-lg' : ''}>
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <div className="text-lg font-bold text-slate-900">{p.name}</div>
-                    <div className="mt-1 text-sm text-slate-600">{p.description}</div>
+              <motion.div
+                key={p.name}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: idx * 0.06 }}
+                className={`bg-white rounded-2xl p-8 relative shadow-lg ${
+                  popular ? 'border-2 border-blue-600 shadow-xl' : 'border border-gray-100'
+                }`}
+              >
+                {popular && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                    <span className="badge badge-primary animate-pulse-border">
+                      <HiLightningBolt className="w-4 h-4" />
+                      MÁS POPULAR
+                    </span>
                   </div>
-                  {popular && (
-                    <Badge className="bg-brand-50 text-brand-700 ring-brand-100">Más popular</Badge>
-                  )}
+                )}
+
+                <div className="mb-8">
+                  <h3 className="mb-2">{p.name}</h3>
+                  <p className="text-gray-600">{p.description}</p>
+                  <div className="mt-6">
+                    <span className={`text-5xl font-bold ${popular ? 'text-blue-700' : 'text-gray-900'}`}>
+                      {formatLempiras(p.price)}
+                    </span>
+                    <span className="text-gray-500 ml-2">único pago</span>
+                  </div>
                 </div>
 
-                <div className="mt-6 text-4xl font-extrabold text-slate-900">
-                  {formatLempiras(p.price)}
-                </div>
-                <div className="mt-2 text-sm text-slate-600">Entrega: {p.deliveryTime}</div>
-
-                <ul className="mt-6 space-y-2 text-sm text-slate-700">
-                  {p.features.slice(0, 6).map((f) => (
-                    <li key={f} className="flex gap-2">
-                      <span className="text-emerald-600">✓</span>
-                      <span>{f}</span>
+                <ul className="space-y-3 mb-8">
+                  {p.features.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <HiCheck className="w-5 h-5 text-green-500 mt-0.5" />
+                      <span className="text-gray-700">{feature}</span>
                     </li>
                   ))}
                 </ul>
 
-                <div className="mt-8 grid gap-2">
+                <div className="space-y-2 text-sm text-gray-600">
+                  <div>⏱️ Entrega: {p.deliveryTime}</div>
+                  <div>👥 Ideal para: {p.idealFor}</div>
+                </div>
+
+                <div className="mt-8 grid gap-3">
                   <a
-                    href={`${waBase}${encodeURIComponent(`Hola! Me interesa el ${p.name}`)}`}
-                    className="btn-primary w-full"
+                    href={`https://wa.me/${CONTACT.whatsapp.number}?text=${encodeURIComponent(
+                      `Hola! Me interesa el ${p.name}`,
+                    )}`}
+                    className="btn btn-primary w-full text-center"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Cotizar por WhatsApp
+                    Solicitar {p.name}
                   </a>
-                  <Link href="/contacto" className="btn-ghost w-full text-center">
-                    Contacto / Formulario
+                  <Link href="/contacto" className="btn btn-ghost w-full text-center">
+                    Hablar con nosotros
                   </Link>
                 </div>
-              </Card>
+              </motion.div>
             );
           })}
+        </div>
+
+        <div className="mt-12 text-center text-gray-600">
+          <p className="prose">
+            Plan de pagos: <strong>{PRICING_PACKS.payment.initial}%</strong> al iniciar y{' '}
+            <strong>{PRICING_PACKS.payment.final}%</strong> al entregar. Garantía:{' '}
+            <strong>{PRICING_PACKS.payment.guarantee} días</strong>.
+          </p>
         </div>
       </div>
     </section>

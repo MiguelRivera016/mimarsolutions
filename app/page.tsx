@@ -6,16 +6,18 @@ import Process from '@/components/home/Process';
 import Pricing from '@/components/home/Pricing';
 import Team from '@/components/home/Team';
 import CTA from '@/components/home/CTA';
+import WhatsAppButton from '@/components/common/WhatsAppButton';
 
 export default function HomePage() {
   return (
     <>
       <Hero />
       <Services />
-      <Process />
       <Pricing />
+      <Process />
       <Team />
       <CTA />
+      <WhatsAppButton />
     </>
   );
 }
