@@ -1,14 +1,6 @@
 import { ReactNode } from 'react';
 
-interface ContainerProps {
-  children: ReactNode;
-  className?: string;
+export default function Container({ children }: { children: ReactNode }) {
+  return <div className="container-pro px-6">{children}</div>;
 }
 
-export default function Container({ children, className = '' }: ContainerProps) {
-  return (
-    <div className={`container-pro ${className}`}>
-      {children}
-    </div>
-  );
-}

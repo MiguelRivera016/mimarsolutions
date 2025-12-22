@@ -1,92 +1,124 @@
-import './globals.css';
 import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import { COMPANY, METADATA } from '@/config/constants';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+import WhatsAppButton from '@/components/common/WhatsAppButton';
+import { SITE_CONFIG } from '@/lib/constants';
 
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
-});
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(COMPANY.url),
   title: {
-    default: METADATA.default.title,
-    template: '%s | MIMAR Solutions',
+    default: `${SITE_CONFIG.name} - ${SITE_CONFIG.tagline}`,
+    template: `%s | ${SITE_CONFIG.name}`,
   },
-  description: METADATA.default.description,
-  keywords: METADATA.default.keywords,
+  description: SITE_CONFIG.description,
+  keywords: [...SITE_CONFIG.keywords],
+  authors: [{ name: SITE_CONFIG.name }],
+  creator: SITE_CONFIG.name,
+  publisher: SITE_CONFIG.name,
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL(SITE_CONFIG.url),
   openGraph: {
-    type: 'website',
-    url: COMPANY.url,
-    title: METADATA.default.title,
-    description: METADATA.default.description,
-    siteName: COMPANY.name,
-    locale: METADATA.openGraph.locale,
+    title: `${SITE_CONFIG.name} - ${SITE_CONFIG.tagline}`,
+    description: SITE_CONFIG.description,
+    url: SITE_CONFIG.url,
+    siteName: SITE_CONFIG.name,
     images: [
       {
-        url: '/assets/images/responsive-devices.png',
+        url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'MIMAR Solutions',
+        alt: SITE_CONFIG.name,
       },
     ],
+    locale: 'es_HN',
+    type: 'website',
   },
-  robots: { index: true, follow: true },
-  alternates: { canonical: COMPANY.url },
-  icons: { icon: '/favicon.ico' },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${SITE_CONFIG.name} - ${SITE_CONFIG.tagline}`,
+    description: SITE_CONFIG.description,
+    images: ['/og-image.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon-16x16.png',
+    apple: '/apple-touch-icon.png',
+  },
+  manifest: '/manifest.json',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: COMPANY.name,
-    url: COMPANY.url,
-    email: COMPANY.email,
-    telephone: COMPANY.phone,
-    address: {
-      '@type': 'PostalAddress',
-      addressCountry: 'HN',
-      addressLocality: COMPANY.location.city,
-    },
-    sameAs: [
-      COMPANY.social.linkedin,
-      COMPANY.social.facebook,
-      COMPANY.social.instagram,
-    ],
-    logo: `${COMPANY.url}/assets/branding/isotipo-m.png`,
-  };
-
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es" className="scroll-smooth">
-      <body className={poppins.className + ' bg-white text-ink-900 antialiased'}>
-        {/* Skip link accesible */}
-        <a
-          href="#contenido"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-50 focus:rounded-md focus:bg-brand-600 focus:px-3 focus:py-2 focus:text-white focus:outline-none focus:ring-2 focus:ring-brand-400"
-        >
-          Saltar al contenido
-        </a>
-
-        <Navbar />
-        <main id="contenido" className="min-h-[60vh]">
-          {children}
-        </main>
-        <Footer />
-
-        {/* JSON-LD para SEO */}
+      <head>
+        {/* Schema.org markup for Organization */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: SITE_CONFIG.name,
+              description: SITE_CONFIG.description,
+              url: SITE_CONFIG.url,
+              logo: `${SITE_CONFIG.url}/logo.png`,
+              contactPoint: {
+                '@type': 'ContactPoint',
+                telephone: SITE_CONFIG.contact.phone,
+                contactType: 'customer service',
+                availableLanguage: 'Spanish',
+                areaServed: 'HN',
+              },
+              sameAs: [SITE_CONFIG.social.facebook, SITE_CONFIG.social.instagram, SITE_CONFIG.social.linkedin],
+              address: {
+                '@type': 'PostalAddress',
+                addressCountry: 'HN',
+                addressLocality: 'Tegucigalpa',
+              },
+            }),
+          }}
         />
+      </head>
+      <body className={`${inter.className} antialiased`}>
+        <Header />
+        <main className="min-h-screen pt-16 md:pt-20">{children}</main>
+        <Footer />
+        <WhatsAppButton />
+
+        {/* Google Analytics - Agregar tu ID */}
+        {/* <Script
+          src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'GA_MEASUREMENT_ID');
+          `}
+        </Script> */}
       </body>
     </html>
   );
 }
+

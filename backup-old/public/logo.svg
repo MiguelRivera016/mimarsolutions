@@ -1,0 +1,5 @@
+<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"160\" height=\"28\" viewBox=\"0 0 160 28\" fill=\"none\">
+  <defs><linearGradient id=\"g\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#0B78C4\"/><stop offset=\"1\" stop-color=\"#00C2FF\"/></linearGradient></defs>
+  <path d=\"M4 22V6h4l6 8l6-8h4v16h-4V12l-6 8l-6-8v10H4z\" fill=\"url(#g)\"/>
+  <text x=\"34\" y=\"20\" font-family=\"Inter, system-ui, Arial\" font-size=\"16\" font-weight=\"700\" fill=\"#0B0B0C\">MIMAR GROUP</text>
+</svg>
